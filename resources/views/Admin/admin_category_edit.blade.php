@@ -34,48 +34,48 @@
 @include('admin._admin-sidebar')
 <div class="content">
     @include('admin._admin-navbar')
-    <div class="col-12">
-   
-       
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Categories</h6>
-                            <div class="table-responsive bg-dark">
-                                <table class="table text-white">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Category</th>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Keywords</th>
-                                            <th scope="col">Description</th>
-                                            <th scope="col">Created At</th>
-                                            <th scope="col">Edit</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="bg-secondary">
+    <div class="w-100 h-auto">
+            <form role="form" action="{{route('admin_category_update',['id'=>$currentCategory->id])}}" method="post" class="bg-light rounded h-100 p-4">
+                @csrf
+                    <h6 class="mb-4">Edit Category</h6>
+                    <div class="form-floating mb-3">
+                                <select name="parent_id" class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example">
+                                    <option value="{{$currentCategory->title}}  ">{{$currentCategory->title}}</option>
                                     @foreach($categories as $category)
-                                  
-                                    <tr>
-                                            <th scope="row">{{$category->id??"Undefined"}}</th>
-                                            <td>  {{ $category->title??"Undefined" }} </td>
-                                            <td><small>  {{ $category->description??"Undefined" }} </small></td>
-                                            <td>  {{ $category->keywords??"Undefined" }} </td>
-                                            <td> <small>{{ $category->description??"Undefined" }}</small></td>
-                                            <td>{{$category->created_at??"******" }}</td>
-                                            <td>
-                                            <div class="btn-group" role="group">
-                                                <a  href="{{route('admin_category_delete',['id'=>$category->id])}}" type="button" class="btn btn-danger">Remove</a>
-                                                <a  href="{{route('admin_category_edit',['id'=>$category->id])}}" type="button" class="btn btn-primary">Edit</a>
-                                            </div>
-                                            </td>
-                                        </tr>
+                                        <option value="{{$category->id}}">{{$category->title}}</option>
                                     @endforeach
-                    
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                </select>
+                                <label for="floatingSelect">Works with selects</label>
                     </div>
+                    <div class="form-floating mb-3">
+                            <input name="title" value="{{$currentCategory->title}}" type="text" class="form-control" id="title">
+                            <label for="title">Title</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                            <input name="keywords"  value="{{$currentCategory->keywords}}" type="text" class="form-control" id="keywords">
+                            <label for="keywords">Keywords</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                            <input name="slug"  value="{{$currentCategory->slug}}" type="text" class="form-control" id="keywords">
+                            <label for="keywords">slug</label>
+                    </div>   
+                    <div class="form-floating mb-3">
+                                <select name="status" class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example">
+                                    <option  value="{{$currentCategory->title}}"> {{$currentCategory->status}}</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                                <label for="floatingSelect">Works with selects</label>
+                    </div>   
+                    <div class="form-floating">
+                        <textarea   class="form-control" name="description"  id="description" style="height: 150px;">{{$currentCategory->description}}</textarea>
+                        <label for="description">description</label>
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100 m-2">Create Category</button>
+            </form>
+    </div>
 </div>
     
 

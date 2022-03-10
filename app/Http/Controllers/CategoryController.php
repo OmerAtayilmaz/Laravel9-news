@@ -83,9 +83,13 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Category $category,$id)
     {
-        //
+       // $category=DB::table('categories')->get()->where('id',$id);
+        $currentCategory=Category::find($id);
+        $categories=DB::table('categories')->get()->where('parent_id',0);
+     
+        return view('admin.admin_category_edit',['categories' => $categories,'currentCategory'=>$currentCategory]);
     }
 
     /**
@@ -95,9 +99,20 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request,Category $category,$id)
     {
-        //
+      
+
+
+        $data = Category::find($id);
+       
+        $data->title=$request->input('title');
+        $data->parent_id=$request->input('parent_id');
+        $data->keywords=$request->input('keywords');
+        $data->slug=$request->input('slug');
+        $data->description=$request->input('description');
+        $data->save();
+        return redirect(route('admin_category'));
     }
 
     /**
@@ -106,8 +121,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category,$id)
     {
-        //
+        $deleted = DB::table('categories')->where('id',"=", $id)->delete();
+        return redirect(route('admin_category'));
+
     }
 }
