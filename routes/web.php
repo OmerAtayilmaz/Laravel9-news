@@ -3,19 +3,14 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+/* Controllers */
+use App\HTTP\Controllers\HomeController;
+use App\HTTP\Controllers\EkonomiController;
+use App\HTTP\Controllers\GundemController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
+
+/* Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -23,7 +18,57 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+ */
+Route::get('/',[HomeController::class,"index"])->name('home');
+/* bir parametre aldığında calisir */
+Route::get('/ekonomi/{id}',[EkonomiController::class,"test"])->name('ekonomi')->where('id','[0-9]+');
+Route::redirect('/home',"/",301);/* "/home" yazarsa "/" gider */
+Route::get('/video',function(){
+    return view('home.video',["mydata"=>"Ömer Atayilmaz"]);
+})->name('video');
 
+Route::get('/gundem/{uridata}',[GundemController::class,"index"])->name('gundem');
+
+Route::get('/dunya',function(){
+    return Inertia::render('VideoPage',[
+        'canLogn'=>Route::has('login'),
+        'canRegister'=>Route::has('register'),
+        'laravelVersion'=>Application::VERSION,
+        'phpVersion'=>PHP_VERSION,
+    ]);
+})->name('dunya');
+Route::get('/spor',function(){
+    return Inertia::render('VideoPage',[
+        'canLogn'=>Route::has('login'),
+        'canRegister'=>Route::has('register'),
+        'laravelVersion'=>Application::VERSION,
+        'phpVersion'=>PHP_VERSION,
+    ]);
+});
+Route::get('/canli',function(){
+    return Inertia::render('VideoPage',[
+        'canLogn'=>Route::has('login'),
+        'canRegister'=>Route::has('register'),
+        'laravelVersion'=>Application::VERSION,
+        'phpVersion'=>PHP_VERSION,
+    ]);
+});
+Route::get('/iletisim',function(){
+    return Inertia::render('VideoPage',[
+        'canLogn'=>Route::has('login'),
+        'canRegister'=>Route::has('register'),
+        'laravelVersion'=>Application::VERSION,
+        'phpVersion'=>PHP_VERSION,
+    ]);
+});
+Route::get('/hakkimizda',function(){
+    return Inertia::render('VideoPage',[
+        'canLogn'=>Route::has('login'),
+        'canRegister'=>Route::has('register'),
+        'laravelVersion'=>Application::VERSION,
+        'phpVersion'=>PHP_VERSION,
+    ]);
+});
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
