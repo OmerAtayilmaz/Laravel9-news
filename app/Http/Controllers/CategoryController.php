@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-       return view('admin.admin_category');
+        $categories = DB::table('categories')->get();
+
+       return view('admin.admin_category',['categories' => $categories]);
     }
 
     /**

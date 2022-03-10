@@ -34,7 +34,86 @@
 @include('admin._admin-sidebar')
 <div class="content">
     @include('admin._admin-navbar')
-    
+    <div class="col-12">
+   
+       
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">Categories</h6>
+                            <div class="table-responsive bg-dark">
+                                <table class="table text-white">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Category</th>
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Keywords</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Created At</th>
+                                            <th scope="col">Edit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-secondary">
+                                    @foreach($categories as $category)
+                                  
+                                    <tr>
+                                            <th scope="row">{{$category->parent_id??"Undefined"}}</th>
+                                            <td>  {{ $category->title??"Undefined" }} </td>
+                                            <td><small>  {{ $category->description??"Undefined" }} </small></td>
+                                            <td>  {{ $category->keywords??"Undefined" }} </td>
+                                            <td> {{ $category->keywords??"Undefined" }}</td>
+                                            <td>{{$category->created_at??"******" }}</td>
+                                            <td>
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-danger">Remove</button>
+                                                <button type="button" class="btn btn-success">Edit</button>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>jhon@email.com</td>
+                                            <td>USA</td>
+                                            <td>123</td>
+                                            <td>
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-danger">Remove</button>
+                                                <button type="button" class="btn btn-success">Edit</button>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>mark@email.com</td>
+                                            <td>UK</td>
+                                            <td>456</td>
+                                           <td> <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-danger">Remove</button>
+                                                <button type="button" class="btn btn-success">Edit</button>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>jacob@email.com</td>
+                                            <td>AU</td>
+                                            <td>789</td>
+                                            <td> <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-danger">Remove</button>
+                                                <button type="button" class="btn btn-success">Edit</button>
+                                            </div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 </div>
     
 

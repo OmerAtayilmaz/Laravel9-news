@@ -41,19 +41,19 @@ Route::get('/video',function(){
 Route::get('/gundem/{uridata}',[GundemController::class,"index"])->name('gundem');
 
 /* Admin */
-Route::get('/admin',[AdminController::class,'index'])->name('adminhome')->middleware('auth');
+Route::get('/admin',[AdminController::class,'index'])->name('admin_home')->middleware('auth');
 Route::get('/login',[AdminController::class,'login'])->name('login');
 Route::post('/admin/logincheck',[AdminController::class,'logincheck'])->name('admin_logincheck');
 Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin_logout');
 
 /* Admin->category with auth! */
-Route::middleware('auth')->prefix('admin')->group(function(){
+Route::middleware('auth')->prefix('admin/category')->group(function(){
     /* prefix asagidakilerin hepsinin önüne eklenir. admin/category/add,admin/category/delet etc. */
-    Route::get('category',[CategoryController::class,'index'])->name('admin_category');
-    Route::get('category/add',[CategoryController::class,'add'])->name('admin_category_add');
-    Route::get('category/update',[CategoryController::class,'update'])->name('admin_category_update');
-    Route::get('category/delete',[CategoryController::class,'destroy'])->name('admin_category_delete');
-    Route::get('category/show',[CategoryController::class,'show'])->name('admin_category_show');
+    Route::get('/',[CategoryController::class,'index'])->name('admin_category');
+    Route::get('/add',[CategoryController::class,'add'])->name('admin_category_add');
+    Route::get('/update',[CategoryController::class,'update'])->name('admin_category_update');
+    Route::get('/delete',[CategoryController::class,'destroy'])->name('admin_category_delete');
+    Route::get('/show',[CategoryController::class,'show'])->name('admin_category_show');
 });
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
