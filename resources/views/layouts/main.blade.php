@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
     <head>
         <meta charset="utf-8" />
         <meta
@@ -7,7 +7,7 @@
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <title>
-            Ampulhaber
+            @yield('title')
         </title>
         <link href="{{asset('assets')}}/media_query.css" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets')}}/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -17,7 +17,7 @@
             integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
             crossorigin="anonymous"
         />
-        <link href="css/animate.css" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets')}}/css/animate.css" rel="stylesheet" type="text/css" />
         <link
             href="https://fonts.googleapis.com/css?family=Poppins"
             rel="stylesheet"
@@ -36,9 +36,13 @@
 <body>
     @include('home._header')
     @include('home._navbar')
-    @include('home._content')
-
-
+ 
+  
+        <div class="container-fluid m-0 p-0">
+        @section('content')
+        @show
+        </div>
+   
     @include('home._footer')
 </body>
 </html>

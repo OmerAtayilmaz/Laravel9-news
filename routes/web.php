@@ -21,6 +21,16 @@ use App\HTTP\Controllers\GundemController;
  */
 Route::get('/',[HomeController::class,"index"])->name('home');
 /* bir parametre aldığında calisir */
+Route::get('/blog',function(){
+    return view('home.blog');
+});
+
+Route::get('/magazine',function(){
+    return view('home.magazine');
+});
+Route::get('/contact',function(){
+    return view('home.contact');
+});
 Route::get('/ekonomi/{id}',[EkonomiController::class,"test"])->name('ekonomi')->where('id','[0-9]+');
 Route::redirect('/home',"/",301);/* "/home" yazarsa "/" gider */
 Route::get('/video',function(){

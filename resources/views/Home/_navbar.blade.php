@@ -12,7 +12,7 @@
                     >
                         <span class="fa fa-bars"></span>
                     </button>
-                    <a class="navbar-brand" href="#"
+                    <a class="navbar-brand" href="/"
                         ><img
                             src="{{asset('assets')}}/images/logo.png"
                             alt="img"
@@ -24,20 +24,20 @@
                     >
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html"
+                                <a class="nav-link" href="/"
                                     >Home
                                     <span class="sr-only">(current)</span></a
                                 >
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="blog.html"
+                                <a class="nav-link" href="/blog"
                                     >Blog
                                     <span class="sr-only">(current)</span></a
                                 >
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="single.html"
-                                    >Single
+                                <a class="nav-link" href="/magazine"
+                                    >Magazine
                                     <span class="sr-only">(current)</span></a
                                 >
                             </li>
@@ -57,14 +57,12 @@
                                     aria-labelledby="dropdownMenuLink_1"
                                 >
                                     <a class="dropdown-item" href="#"
-                                        >Action in</a
+                                        >World's news</a
                                     >
                                     <a class="dropdown-item" href="#"
-                                        >Another action</a
+                                        >Newsbreak</a
                                     >
-                                    <a class="dropdown-item" href="#"
-                                        >Something else here</a
-                                    >
+                                  
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
