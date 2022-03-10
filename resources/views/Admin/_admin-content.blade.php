@@ -1,13 +1,15 @@
 <div class="content">
             <!-- Navbar Start -->
+            
             @include('admin._admin-navbar')
             <!-- Navbar End -->
 
+                
 
             <!-- Sale & Revenue Start -->
             @include('admin._admin-stats')
             <!-- Sale & Revenue End -->
-
+           
 
             <!-- Sales Chart Start -->
             <div class="container-fluid pt-4 px-4">

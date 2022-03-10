@@ -30,14 +30,14 @@
 <body>
 <div class="container-xxl position-relative bg-white d-flex p-0">
 <!-- spinner -->
-
 @include('admin._admin-spinner')
 @include('admin._admin-sidebar')
-<div class="container-fluid m-0 p-0">
-    @section('content')
-    @include('admin._admin-content')
-    @show
+<div class="content">
+    @include('admin._admin-navbar')
+    
 </div>
+    
+
 </div>
 <a href="#" class="btn btn-lg btn-warning btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     <!-- JavaScript Libraries -->

@@ -8,6 +8,7 @@ use App\HTTP\Controllers\HomeController;
 use App\HTTP\Controllers\EkonomiController;
 use App\HTTP\Controllers\GundemController;
 use App\HTTP\Controllers\AdminController;
+use App\HTTP\Controllers\CategoryController;
 
 
 
@@ -40,8 +41,20 @@ Route::get('/video',function(){
 Route::get('/gundem/{uridata}',[GundemController::class,"index"])->name('gundem');
 
 /* Admin */
-Route::get('/admin',[AdminController::class,'index'])->name('adminhome');
+Route::get('/admin',[AdminController::class,'index'])->name('adminhome')->middleware('auth');
+Route::get('/login',[AdminController::class,'login'])->name('login');
+Route::post('/admin/logincheck',[AdminController::class,'logincheck'])->name('admin_logincheck');
+Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin_logout');
 
+/* Admin->category with auth! */
+Route::middleware('auth')->prefix('admin')->group(function(){
+    /* prefix asagidakilerin hepsinin önüne eklenir. admin/category/add,admin/category/delet etc. */
+    Route::get('category',[CategoryController::class,'index'])->name('admin_category');
+    Route::get('category/add',[CategoryController::class,'add'])->name('admin_category_add');
+    Route::get('category/update',[CategoryController::class,'update'])->name('admin_category_update');
+    Route::get('category/delete',[CategoryController::class,'destroy'])->name('admin_category_delete');
+    Route::get('category/show',[CategoryController::class,'show'])->name('admin_category_show');
+});
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
