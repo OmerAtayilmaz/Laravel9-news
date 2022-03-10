@@ -51,6 +51,7 @@ Route::middleware('auth')->prefix('admin/category')->group(function(){
     /* prefix asagidakilerin hepsinin önüne eklenir. admin/category/add,admin/category/delet etc. */
     Route::get('/',[CategoryController::class,'index'])->name('admin_category');
     Route::get('/add',[CategoryController::class,'add'])->name('admin_category_add');
+    Route::post('/create',[CategoryController::class,'create'])->name('admin_category_create');;
     Route::get('/update',[CategoryController::class,'update'])->name('admin_category_update');
     Route::get('/delete',[CategoryController::class,'destroy'])->name('admin_category_delete');
     Route::get('/show',[CategoryController::class,'show'])->name('admin_category_show');

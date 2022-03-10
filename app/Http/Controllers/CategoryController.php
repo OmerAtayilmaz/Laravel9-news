@@ -25,11 +25,36 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function add()
     {
-        //
+        $categories=DB::table('categories')->get()->where('parent_id',0);
+        return view('admin.admin_category_create',['categories' => $categories]);
     }
 
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request){
+        
+        $title=$request->input('title');
+        $parent_id=$request->input('parent_id');
+        $keywords=$request->input('keywords');
+        $slug=$request->input('slug');
+        $description=$request->input('description');
+    
+        DB::table('categories')->insert([
+            'title' => $title,
+            'parent_id' => $parent_id,
+            'keywords' => $keywords,
+            'slug' => $slug,
+            'description' => $description
+        ]);
+
+      return redirect(route('admin_category'));
+    }
     /**
      * Store a newly created resource in storage.
      *
