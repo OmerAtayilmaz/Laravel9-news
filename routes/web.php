@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\HTTP\Controllers\HomeController;
 use App\HTTP\Controllers\EkonomiController;
 use App\HTTP\Controllers\GundemController;
+use App\HTTP\Controllers\AdminController;
 
 
 
@@ -24,7 +25,6 @@ Route::get('/',[HomeController::class,"index"])->name('home');
 Route::get('/blog',function(){
     return view('home.blog');
 });
-
 Route::get('/magazine',function(){
     return view('home.magazine');
 });
@@ -39,46 +39,9 @@ Route::get('/video',function(){
 
 Route::get('/gundem/{uridata}',[GundemController::class,"index"])->name('gundem');
 
-Route::get('/dunya',function(){
-    return Inertia::render('VideoPage',[
-        'canLogn'=>Route::has('login'),
-        'canRegister'=>Route::has('register'),
-        'laravelVersion'=>Application::VERSION,
-        'phpVersion'=>PHP_VERSION,
-    ]);
-})->name('dunya');
-Route::get('/spor',function(){
-    return Inertia::render('VideoPage',[
-        'canLogn'=>Route::has('login'),
-        'canRegister'=>Route::has('register'),
-        'laravelVersion'=>Application::VERSION,
-        'phpVersion'=>PHP_VERSION,
-    ]);
-});
-Route::get('/canli',function(){
-    return Inertia::render('VideoPage',[
-        'canLogn'=>Route::has('login'),
-        'canRegister'=>Route::has('register'),
-        'laravelVersion'=>Application::VERSION,
-        'phpVersion'=>PHP_VERSION,
-    ]);
-});
-Route::get('/iletisim',function(){
-    return Inertia::render('VideoPage',[
-        'canLogn'=>Route::has('login'),
-        'canRegister'=>Route::has('register'),
-        'laravelVersion'=>Application::VERSION,
-        'phpVersion'=>PHP_VERSION,
-    ]);
-});
-Route::get('/hakkimizda',function(){
-    return Inertia::render('VideoPage',[
-        'canLogn'=>Route::has('login'),
-        'canRegister'=>Route::has('register'),
-        'laravelVersion'=>Application::VERSION,
-        'phpVersion'=>PHP_VERSION,
-    ]);
-});
+/* Admin */
+Route::get('/admin',[AdminController::class,'index'])->name('adminhome');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');

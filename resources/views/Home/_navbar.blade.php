@@ -56,10 +56,10 @@
                                     class="dropdown-menu"
                                     aria-labelledby="dropdownMenuLink_1"
                                 >
-                                    <a class="dropdown-item" href="#"
+                                    <a class="dropdown-item" href="/world-news"
                                         >World's news</a
                                     >
-                                    <a class="dropdown-item" href="#"
+                                    <a class="dropdown-item" href="/newsbreak"
                                         >Newsbreak</a
                                     >
                                   
@@ -68,7 +68,7 @@
                             <li class="nav-item dropdown">
                                 <a
                                     class="nav-link dropdown-toggle"
-                                    href="#"
+                                    href="/community"
                                     id="dropdownMenuButton3"
                                     data-toggle="dropdown"
                                     aria-haspopup="true"
@@ -82,18 +82,18 @@
                                     aria-labelledby="dropdownMenuLink_1"
                                 >
                                     <a class="dropdown-item" href="#"
-                                        >Action in</a
+                                        >Rich Persons </a
                                     >
                                     <a class="dropdown-item" href="#"
-                                        >Another action</a
+                                        >Science Community</a
                                     >
                                     <a class="dropdown-item" href="#"
-                                        >Something else here</a
+                                        >Celebrity Community</a
                                     >
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Contact_us.html"
+                                <a class="nav-link" href="/contact"
                                     >Contact
                                     <span class="sr-only">(current)</span></a
                                 >

@@ -7,8 +7,11 @@
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <title>
-            @yield('title')
+            Ampulhaber | @yield('title')
         </title>
+        <meta name="description" content=" @yield('description') "/>
+        <meta name="author" content=" @yield('author') "/>
+        <meta name="keywords" content=" @yield('keywords') "/>
         <link href="{{asset('assets')}}/media_query.css" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets')}}/css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link
