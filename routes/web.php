@@ -24,13 +24,13 @@ use App\HTTP\Controllers\CategoryController;
 Route::get('/',[HomeController::class,"index"])->name('home');
 /* bir parametre aldığında calisir */
 Route::get('/blog',function(){
-    return view('home.blog');
+    return view('home.blog',['page'=>'blog']);
 });
 Route::get('/magazine',function(){
-    return view('home.magazine');
+    return view('home.magazine',['page'=>'magazine']);
 });
 Route::get('/contact',function(){
-    return view('home.contact');
+    return view('home.contact',['page'=>'contact']);
 });
 Route::get('/ekonomi/{id}',[EkonomiController::class,"test"])->name('ekonomi')->where('id','[0-9]+');
 Route::redirect('/home',"/",301);/* "/home" yazarsa "/" gider */

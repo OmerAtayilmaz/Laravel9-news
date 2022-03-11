@@ -23,25 +23,25 @@
                         id="navbarSupportedContent"
                     >
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
+                            <li class="nav-item {{$page=='index'?'active':''}}">
                                 <a class="nav-link" href="/"
                                     >Home
                                     <span class="sr-only">(current)</span></a
                                 >
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item {{$page=='blog'?'active':''}}">
                                 <a class="nav-link" href="/blog"
                                     >Blog
                                     <span class="sr-only">(current)</span></a
                                 >
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item {{$page=='magazine'?'active':''}}">
                                 <a class="nav-link" href="/magazine"
                                     >Magazine
                                     <span class="sr-only">(current)</span></a
                                 >
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item  dropdown">
                                 <a
                                     class="nav-link dropdown-toggle"
                                     href="#"
@@ -92,7 +92,7 @@
                                     >
                                 </div>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item {{$page=='contact'?'active':''}}">
                                 <a class="nav-link" href="/contact"
                                     >Contact
                                     <span class="sr-only">(current)</span></a

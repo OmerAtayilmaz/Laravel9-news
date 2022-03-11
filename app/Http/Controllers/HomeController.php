@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-
-        return view('home.index'); /* home'daki index anlamına gelir */
+        return view('home.index',['page'=>'index']); /* home'daki index anlamına gelir */
     }
+
+
 
   
 }
