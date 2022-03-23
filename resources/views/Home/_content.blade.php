@@ -5,7 +5,7 @@
                     data-animate-effect="fadeIn"
                 >
                     <div class="fh5co_suceefh5co_height">
-                        <img src="{{asset('assets')}}/images/nick-karvounis-78711.jpg" alt="img" />
+                        <img src="{{asset('assets')}}/images/erdogan.jpg" alt="img" />
                         <div
                             class="fh5co_suceefh5co_height_position_absolute"
                         ></div>
@@ -20,8 +20,7 @@
                             </div>
                             <div class="">
                                 <a href="single.html" class="fh5co_good_font">
-                                    After all is said and done, more is said
-                                    than done
+                                Onların dolarları varsa bizim Allah'ımız var
                                 </a>
                             </div>
                         </div>
@@ -35,7 +34,7 @@
                         >
                             <div class="fh5co_suceefh5co_height_2">
                                 <img
-                                    src="{{asset('assets')}}/images/science-578x362.jpg"
+                                    src="{{asset('assets')}}/images/erdogan.jpeg"
                                     alt="img"
                                 />
                                 <div
@@ -68,7 +67,7 @@
                         >
                             <div class="fh5co_suceefh5co_height_2">
                                 <img
-                                    src="{{asset('assets')}}/images/joe-gardner-75333.jpg"
+                                    src="{{asset('assets')}}/images/albayrak.jpg"
                                     alt="img"
                                 />
                                 <div
@@ -88,7 +87,7 @@
                                             href="single.html"
                                             class="fh5co_good_font_2"
                                         >
-                                            After all is said and done...
+                                            "Dolarla mı maaş alıyorsunuz?"
                                         </a>
                                     </div>
                                 </div>
@@ -100,7 +99,7 @@
                         >
                             <div class="fh5co_suceefh5co_height_2">
                                 <img
-                                    src="{{asset('assets')}}/images/ryan-moreno-98837.jpg"
+                                    src="{{asset('assets')}}/images/saglikbakani.jpg"
                                     alt="img"
                                 />
                                 <div
@@ -133,7 +132,7 @@
                         >
                             <div class="fh5co_suceefh5co_height_2">
                                 <img
-                                    src="{{asset('assets')}}/images/10-1-1-875x500.jpg"
+                                    src="{{asset('assets')}}/images/bahceli.jpg"
                                     alt="img"
                                 />
                                 <div

@@ -13,7 +13,7 @@
                             <div class="fh5co_treding_position_absolute"></div>
                         </div>
                         <a href="#" class="color_fff fh5co_mediya_setting"
-                            >#StayWithUkraine</a
+                            >#StandWithUkraine</a
                         >
                     </div>
                 </div>

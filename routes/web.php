@@ -9,18 +9,8 @@ use App\HTTP\Controllers\EkonomiController;
 use App\HTTP\Controllers\GundemController;
 use App\HTTP\Controllers\AdminController;
 use App\HTTP\Controllers\CategoryController;
+use App\HTTP\Controllers\NewsController;
 
-
-
-/* Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
- */
 Route::get('/',[HomeController::class,"index"])->name('home');
 /* bir parametre aldığında calisir */
 Route::get('/blog',function(){
@@ -57,6 +47,9 @@ Route::middleware('auth')->prefix('admin/category')->group(function(){
     Route::get('/delete/{id}',[CategoryController::class,'destroy'])->name('admin_category_delete');
     Route::get('/show',[CategoryController::class,'show'])->name('admin_category_show');
 });
+/* NEWS */
+Route::get('/deneme',[NewsController::class,'index'])->name('admin_news')->middleware('auth');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
