@@ -35,7 +35,7 @@
 <div class="content">
     @include('admin._admin-navbar')
     <div class="col-12">
-        Hello World!
+      
                          <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">News</h6>
                             <div class="table-responsive bg-dark">
@@ -46,7 +46,9 @@
                                             <th scope="col">Category</th>
                                             <th scope="col">Title</th>
                                             <th scope="col">Keywords</th>
+                                            <th scope="col">category Id</th>
                                             <th scope="col">Description</th>
+                                            <th scope="col">Detail</th>
                                             <th scope="col">Created At</th>
                                             <th scope="col">Edit</th>
                                         </tr>
@@ -59,13 +61,15 @@
                                             <td>  {{ $new->title??"Undefined" }} </td>
                                             <td><small>  {{ $new->description??"Undefined" }} </small></td>
                                             <td>  {{ $new->keywords??"Undefined" }} </td>
+                                            <td> <small>{{ $new->category_id??"Undefined" }}</small></td>
                                             <td> <small>{{ $new->description??"Undefined" }}</small></td>
+                                            <td> <small>{{ $new->detail??"Undefined" }}</small></td>
                                             <td>{{$new->created_at??"******" }}</td>
                                             <td>
-                                         <!--    <div class="btn-group" role="group">
-                                                <a  href="{{route('admin_category_delete',['id'=>$category->id])}}" type="button" class="btn btn-danger">Remove</a>
-                                                <a  href="{{route('admin_category_edit',['id'=>$category->id])}}" type="button" class="btn btn-primary">Edit</a>
-                                            </div> -->
+                                          <div class="btn-group" role="group">
+                                                <a  href="{{route('admin_category_delete',['id'=>$new->id])}}" type="button" class="btn btn-danger">Remove</a>
+                                                <a  href="{{route('admin_category_edit',['id'=>$new->id])}}" type="button" class="btn btn-primary">Edit</a>
+                                            </div> 
                                             </td>
                                         </tr>
                                     @endforeach

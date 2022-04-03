@@ -2,7 +2,7 @@
 
 :root {
     --primary: #333;
-    --light: #f3f6f9;
+    --light: #F3F6F9;
     --dark: #191c24;
 }
 
@@ -121,14 +121,15 @@
     color: var(--dark);
     font-weight: 500;
     border-left: 3px solid var(--light);
-    border-radius: 0 30px 30px 0;
+    border-radius: 0 12px 12px 0;
+    margin-bottom:2px !important;
     outline: none;
 }
 
 .sidebar .navbar .navbar-nav .nav-link:hover,
 .sidebar .navbar .navbar-nav .nav-link.active {
     color: var(--primary);
-    background: #ffffff;
+    background:  var(--light) !important;
     border-color: var(--primary);
 }
 
@@ -139,7 +140,6 @@
     align-items: center;
     justify-content: center;
     background: #ffffff;
-    border-radius: 40px;
 }
 
 .sidebar .navbar .navbar-nav .nav-link:hover i,
@@ -284,3 +284,4 @@ div>a {
 .sidebar-toggler {
     color: #191c24 !important;
 }
+

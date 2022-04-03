@@ -39,6 +39,8 @@ Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin_logou
 /* Admin->category with auth! */
 Route::middleware('auth')->prefix('admin/category')->group(function(){
     /* prefix asagidakilerin hepsinin önüne eklenir. admin/category/add,admin/category/delet etc. */
+
+    /* Categories */
     Route::get('/',[CategoryController::class,'index'])->name('admin_category');
     Route::get('/add',[CategoryController::class,'add'])->name('admin_category_add');
     Route::post('/create',[CategoryController::class,'create'])->name('admin_category_create');;
@@ -48,7 +50,13 @@ Route::middleware('auth')->prefix('admin/category')->group(function(){
     Route::get('/show',[CategoryController::class,'show'])->name('admin_category_show');
 });
 /* NEWS */
-Route::get('/deneme',[NewsController::class,'index'])->name('admin_news')->middleware('auth');
+Route::middleware('auth')->prefix('admin/news')->group(function(){
+    
+    Route::get('/',[NewsController::class,'index'])->name('admin_news');
+    /* forwarding to add page */
+    Route::get('/add',[NewsController::class],'add')->name('admin_news_add');
+    Route::get('/create',[NewsController::class,'create'])->name('admin_news_create');
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
