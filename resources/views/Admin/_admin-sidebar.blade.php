@@ -24,7 +24,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-th me-2"></i>News</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route('admin_news')}}" class="dropdown-item">All News</a>
-                            <a href="{{route('admin_category_add')}}" class="dropdown-item">Create/Edit New</a>
+                            <a href="{{route('admin_news_add')}}" class="dropdown-item">Create/Edit New</a>
                             <a href="element.html" class="dropdown-item">Stats</a>
 
                         </div>
