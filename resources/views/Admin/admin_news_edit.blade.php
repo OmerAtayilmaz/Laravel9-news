@@ -76,7 +76,7 @@
                     <div class="form-floating mb-3">
                                 <select name="status" class="form-select" id="floatingSelect"
                                     aria-label="Floating label select example">
-                                    <option  value="{{$currentNews->title}}"> {{$currentNews->status}}</option>
+                                    <option  value="{{$currentNews->status}}"> {{$currentNews->status?"True":"False"}}</option>
                                     <option value="1">True</option>
                                     <option value="0">False</option>
                                 </select>

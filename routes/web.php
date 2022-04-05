@@ -59,9 +59,9 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         /* forwarding to add page */
         Route::get('/add',[NewsController::class,'add'])->name('admin_news_add');
         Route::post('/create',[NewsController::class,'create'])->name('admin_news_create');
-        Route::post('/update',[NewsController::class,'update'])->name('admin_news_update');
+        Route::post('/update/{id}',[NewsController::class,'update'])->name('admin_news_update');
         Route::get('/edit/{id}',[NewsController::class,'edit'])->name('admin_news_edit');
-        Route::get('/delete/{id}',[NewsController::class,'delete'])->name('admin_news_delete');
+        Route::get('/delete/{id}',[NewsController::class,'destroy'])->name('admin_news_delete');
     });
 });
 

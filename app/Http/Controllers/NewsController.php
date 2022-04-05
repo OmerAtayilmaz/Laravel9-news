@@ -51,9 +51,20 @@ class NewsController extends Controller
 
        return redirect(route('admin_news'));
     }
-    public function update(Request $request, News $news)
+
+    public function update(Request $request, News $news,$id)
     {   
-        $data=News::find($id);
+        $data = News::find($id);
+        $data->title=$request->input('title');
+        $data->keywords=$request->input('keywords');
+        $data->category_id=$request->input('category_id');
+        $data->slug=$request->input('slug');
+        $data->type=$request->input('type');
+        $data->status=$request->input('status');
+        $data->description=$request->input('description');
+        $data->detail=$request->input('detail');
+        $data->save();
+        return redirect(route('admin_news'));
     }
     /**
      * Store a newly created resource in storage.
@@ -65,7 +76,7 @@ class NewsController extends Controller
     {
         //
     }
-
+ 
     /**
      * Display the specified resource.
      *
@@ -102,8 +113,9 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy(News $news,$id)
     {
-        //
+        $deleted = DB::table('news')->where('id',"=", $id)->delete();
+        return redirect(route('admin_news'));
     }
 }
