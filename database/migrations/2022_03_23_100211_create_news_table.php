@@ -19,10 +19,11 @@ class CreateNewsTable extends Migration
             $table->string('keywords',255)->nullable();
             $table->string('description',255)->nullable();
             $table->string('image')->nullable();
+            $table->string('slug')->nullable();
             $table->integer('category_id')->nullable();
             $table->text('detail')->nullable();
             $table->string('type',255)->nullable();
-            $table->integer('user_id')->nullable();
+            $table->integer('user_id');
             $table->boolean('status')->nullable();
             $table->timestamps();
         });

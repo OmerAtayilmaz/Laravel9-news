@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
+use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
@@ -16,24 +17,44 @@ class NewsController extends Controller
     public function index()
     {
         $datalist=News::all();
-        return view('admin.admin_news',['news'=>$datalist]); /* home'daki index anlamına gelir */
-    }
+        $categories=DB::table('categories')->get()->where('category_id',0);
+        $users=DB::table('users')->get();
+        return view('admin.admin_news',['news'=>$datalist,'categories'=>$categories,'users'=>$users]);  /* home'daki index anlamına gelir */
+     }
     public function add(){
         $categories=DB::table('categories')->get()->where('parent_id',0);
         return view('admin.admin_new_create',['categories' => $categories]);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
-       /*  $categories=DB::table('categories')->get()->where('parent_id',0);
-        return view('admin.admin_category_create',['categories' => $categories]); */
-        echo "Create Calisti";
-    }
+        $title=$request->input('title');
+        $category_id=$request->input('category_id');
+        $keywords=$request->input('keywords');
+        $type=$request->input('type');
+        $image=$request->input('image');
+        $user_id=Auth::id();
+        $status=$request->input('status');
+        $detail=$request->input('detail');
+        $description=$request->input('description');
+    
+     
+        DB::table('news')->insert([
+            'title' => $title,
+            'category_id' => $category_id,
+            'keywords' => $keywords,
+            'type'=>$type,
+            'user_id' => $user_id,
+            'description' => $description,
+            'detail'=>$detail,
+            'status'=>$status,
+        ]); 
 
+       return redirect(route('admin_news'));
+    }
+    public function update(Request $request, News $news)
+    {
+        $data=News::find($id);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -67,17 +88,8 @@ class NewsController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\News  $news
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, News $news)
-    {
-        //
-    }
+  
+   
 
     /**
      * Remove the specified resource from storage.

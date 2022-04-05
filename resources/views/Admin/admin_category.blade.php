@@ -52,7 +52,7 @@
                                             <th scope="col">Edit</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-secondary">
+                                    <tbody>
                                     @foreach($categories as $category)
                                   
                                     <tr>

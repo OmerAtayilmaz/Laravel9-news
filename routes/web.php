@@ -11,6 +11,7 @@ use App\HTTP\Controllers\AdminController;
 use App\HTTP\Controllers\CategoryController;
 use App\HTTP\Controllers\NewsController;
 
+
 Route::get('/',[HomeController::class,"index"])->name('home');
 /* bir parametre aldığında calisir */
 Route::get('/blog',function(){
@@ -30,6 +31,9 @@ Route::get('/video',function(){
 
 Route::get('/gundem/{uridata}',[GundemController::class,"index"])->name('gundem');
 
+Route::get('/world-news',function(Request $request){
+    echo "Hello world!";
+});
 /* Admin */
 Route::get('/admin',[AdminController::class,'index'])->name('admin_home')->middleware('auth');
 Route::get('/login',[AdminController::class,'login'])->name('login');
@@ -54,7 +58,7 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::get('/',[NewsController::class,'index'])->name('admin_news');
         /* forwarding to add page */
         Route::get('/add',[NewsController::class,'add'])->name('admin_news_add');
-        Route::get('/create',[NewsController::class,'create'])->name('admin_news_create');
+        Route::post('/create',[NewsController::class,'create'])->name('admin_news_create');
         Route::get('/edit/{id}',[NewsController::class,'edit'])->name('admin_news_edit');
     });
 });

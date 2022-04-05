@@ -45,25 +45,32 @@
                                             <th scope="col">#</th>
                                             <th scope="col">Category</th>
                                             <th scope="col">Title</th>
-                                            <th scope="col">Keywords</th>
-                                            <th scope="col">category Id</th>
                                             <th scope="col">Description</th>
+                                            <th scope="col">Type</th>
                                             <th scope="col">Detail</th>
+                                            <th scope="col">Yazar</th>
                                             <th scope="col">Created At</th>
                                             <th scope="col">Edit</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-secondary">
+                                    <tbody >
                                     @foreach($news as $new)
-                                  
                                     <tr>
                                             <th scope="row">{{$new->id??"Undefined"}}</th>
-                                            <td>  {{ $new->title??"Undefined" }} </td>
-                                            <td><small>  {{ $new->description??"Undefined" }} </small></td>
-                                            <td>  {{ $new->keywords??"Undefined" }} </td>
-                                            <td> <small>{{ $new->category_id??"Undefined" }}</small></td>
+                                            @foreach($categories as $category)
+                                                @if($new->category_id==$category->id)
+                                                    <td> {{$category->title }} </td>
+                                                @endif
+                                            @endforeach
+                                            <td><small>  {{ $new->title??"Undefined" }} </small></td>
                                             <td> <small>{{ $new->description??"Undefined" }}</small></td>
+                                            <td> <small>{{ $new->type??"Undefined" }}</small></td>
                                             <td> <small>{{ $new->detail??"Undefined" }}</small></td>
+                                            @foreach($users as $user)
+                                                @if($new->user_id==$user->id)
+                                                    <td> {{$user->name }} </td>
+                                                @endif
+                                            @endforeach
                                             <td>{{$new->created_at??"******" }}</td>
                                             <td>
                                           <div class="btn-group" role="group">
