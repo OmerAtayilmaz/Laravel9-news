@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
+    <title>Dashboard | {{Auth::user()->name}}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -74,8 +74,8 @@
                                             <td>{{$new->created_at??"******" }}</td>
                                             <td>
                                           <div class="btn-group" role="group">
-                                                <a  href="{{route('admin_category_delete',['id'=>$new->id])}}" type="button" class="btn btn-danger">Remove</a>
-                                                <a  href="{{route('admin_category_edit',['id'=>$new->id])}}" type="button" class="btn btn-primary">Edit</a>
+                                                <a  href="{{route('admin_news_delete',['id'=>$new->id])}}" type="button" class="btn btn-danger">Remove</a>
+                                                <a  href="{{route('admin_news_edit',['id'=>$new->id])}}" type="button" class="btn btn-primary">Edit</a>
                                             </div> 
                                             </td>
                                         </tr>

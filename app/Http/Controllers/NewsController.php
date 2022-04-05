@@ -52,7 +52,7 @@ class NewsController extends Controller
        return redirect(route('admin_news'));
     }
     public function update(Request $request, News $news)
-    {
+    {   
         $data=News::find($id);
     }
     /**
@@ -83,9 +83,14 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit(News $news,$id)
     {
-        //
+         // $category=DB::table('categories')->get()->where('id',$id);
+         $currentNews=News::find($id);
+         $news=DB::table('news')->get()->where('id',$id);
+         $categories=DB::table('categories')->get()->where('category_id',0);
+
+         return view('admin.admin_news_edit',['news' => $news,'currentNews'=>$currentNews,'categories'=>$categories]);
     }
 
   
