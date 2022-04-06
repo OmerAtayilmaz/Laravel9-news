@@ -1,33 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <!-- Favicon -->
-    <link href="{{asset('assets')}}/images/favicon.ico" rel="icon">
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+@include('admin._admin-head')
 
-    <!-- Libraries Stylesheet -->
-    <link href="{{asset('assets')}}/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="{{asset('assets')}}/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{asset('assets')}}/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="{{asset('assets')}}/css/style.css" rel="stylesheet">
-</head>
-<body>
 <div class="container-xxl position-relative bg-white d-flex p-0">
 <!-- spinner -->
 @include('admin._admin-spinner')
@@ -35,7 +7,7 @@
 <div class="content">
     @include('admin._admin-navbar')
     <div class="w-100 h-auto">
-            <form role="form" action="{{route('admin_news_create')}}" method="post" class="bg-light rounded h-100 p-4">
+            <form role="form" action="{{route('admin_news_create')}}" method="post"  enctype="multipart/form-data" class="bg-light rounded h-100 p-4">
                 @csrf
                     <h6 class="mb-4">Create News</h6>
                     <div class="form-floating mb-3">
@@ -55,14 +27,16 @@
                     <div class="form-floating mb-3">
                             <input name="keywords" type="text" class="form-control" id="keywords">
                             <label for="keywords">Keywords</label>
-                    </div>   
-                    <div class="form-floating mb-3">
-                            <input name="image" type="text" class="form-control" id="image">
-                            <label for="image">İmage</label>
-                    </div>   
+                    </div>     
                     <div class="form-floating mb-3">
                             <input name="slug" type="text" class="form-control" id="slug">
                             <label for="slug">Slug</label>
+                    </div>   
+                    <div class="form-floating mb-3">
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Choose an image</label>
+                        <input class="form-control" type="file" name="image" id="image">
+                    </div>
                     </div>   
                     <div class="form-floating mb-3">
                                 <select name="type" class="form-select" id="floatingSelect"

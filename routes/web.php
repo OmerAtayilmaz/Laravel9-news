@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+
 use Inertia\Inertia;
 /* Controllers */
 use App\HTTP\Controllers\HomeController;
@@ -10,6 +11,7 @@ use App\HTTP\Controllers\GundemController;
 use App\HTTP\Controllers\AdminController;
 use App\HTTP\Controllers\CategoryController;
 use App\HTTP\Controllers\NewsController;
+use App\HTTP\Controllers\ImageController;
 
 
 Route::get('/',[HomeController::class,"index"])->name('home');
@@ -54,7 +56,7 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('category/show',[CategoryController::class,'show'])->name('admin_category_show');
 
     /* NEWS */
-    Route::prefix('news')->group(function(){
+    Route::prefix('news')->group(function(){/* admin.news.admin_news * yeni videoları izle * */
         Route::get('/',[NewsController::class,'index'])->name('admin_news');
         /* forwarding to add page */
         Route::get('/add',[NewsController::class,'add'])->name('admin_news_add');
@@ -62,6 +64,13 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::post('/update/{id}',[NewsController::class,'update'])->name('admin_news_update');
         Route::get('/edit/{id}',[NewsController::class,'edit'])->name('admin_news_edit');
         Route::get('/delete/{id}',[NewsController::class,'destroy'])->name('admin_news_delete');
+    });
+    #Image Image Gallery
+    Route::prefix('images')->group(function(){
+        Route::get('create/{id}',[ImageController::class,'create'])->name('admin_image_create');
+        Route::post('store/{id}',[ImageController::class,'store'])->name('admin_images_store');
+        Route::get('delete/{id}/{news_id}',[ImageController::class,'destroy'])->name('admin_image_delete');
+        Route::get('show',[ImageController::class,'show'])->name('show');
     });
 });
 

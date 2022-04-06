@@ -14,7 +14,7 @@ class CreateImagesTable extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->string('news_id',255);
             $table->string('title',255);
             $table->string('image',255);

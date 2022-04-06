@@ -16,7 +16,7 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->text('comment');
-            /* float value:rate */
+            $table->float('rate', 8, 2);
             $table->string('news_id');
             $table->string('user_id');
             $table->string('ip',255);

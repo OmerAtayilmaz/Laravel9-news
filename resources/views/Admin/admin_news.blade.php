@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Dashboard | {{Auth::user()->name}}</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <!-- Favicon -->
-    <link href="{{asset('assets')}}/images/favicon.ico" rel="icon">
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="{{asset('assets')}}/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="{{asset('assets')}}/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{asset('assets')}}/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="{{asset('assets')}}/css/style.css" rel="stylesheet">
-</head>
-<body>
+@include('admin._admin-head')
 <div class="container-xxl position-relative bg-white d-flex p-0">
 <!-- spinner -->
 @include('admin._admin-spinner')
@@ -45,9 +16,9 @@
                                             <th scope="col">#</th>
                                             <th scope="col">Category</th>
                                             <th scope="col">Title</th>
-                                            <th scope="col">Description</th>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Gallery</th>
                                             <th scope="col">Type</th>
-                                            <th scope="col">Detail</th>
                                             <th scope="col">Yazar</th>
                                             <th scope="col">Created At</th>
                                             <th scope="col">Edit</th>
@@ -63,9 +34,14 @@
                                                 @endif
                                             @endforeach
                                             <td><small>  {{ $new->title??"Undefined" }} </small></td>
-                                            <td> <small>{{ $new->description??"Undefined" }}</small></td>
+                                            @if($new->image)                      
+                                                <td><image width="40" src="{{Storage::url($new->image)}}"/></td>
+                                            @else
+                                            <td><image width="40" src="{{Storage::url('images/download.png')}}"/></td>
+                                            @endif
+                                            <td class="bg-primary p-2 text-center"> <a  href="{{route('admin_image_create',['id'=>$new->id])}}">
+                                                <img width="20" src="{{asset('assets')}}/images/gallery.png"/></a></td>
                                             <td> <small>{{ $new->type??"Undefined" }}</small></td>
-                                            <td> <small>{{ $new->detail??"Undefined" }}</small></td>
                                             @foreach($users as $user)
                                                 @if($new->user_id==$user->id)
                                                     <td> {{$user->name }} </td>
@@ -76,6 +52,7 @@
                                           <div class="btn-group" role="group">
                                                 <a  href="{{route('admin_news_delete',['id'=>$new->id])}}" type="button" class="btn btn-danger">Remove</a>
                                                 <a  href="{{route('admin_news_edit',['id'=>$new->id])}}" type="button" class="btn btn-primary">Edit</a>
+                                                <a  href="$" type="button" class="btn btn-warning">Show</a>
                                             </div> 
                                             </td>
                                         </tr>

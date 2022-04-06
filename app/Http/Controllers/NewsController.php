@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -36,6 +37,7 @@ class NewsController extends Controller
         $status=$request->input('status');
         $detail=$request->input('detail');
         $description=$request->input('description');
+        $image=Storage::putFile('images',$request->file('image')); //File Uploading
     
      
         DB::table('news')->insert([
@@ -47,6 +49,7 @@ class NewsController extends Controller
             'description' => $description,
             'detail'=>$detail,
             'status'=>$status,
+            'image'=>$image
         ]); 
 
        return redirect(route('admin_news'));
@@ -63,6 +66,8 @@ class NewsController extends Controller
         $data->status=$request->input('status');
         $data->description=$request->input('description');
         $data->detail=$request->input('detail');
+        $data->image=Storage::putFile('images',$request->file('image')); //File Uploading
+
         $data->save();
         return redirect(route('admin_news'));
     }
@@ -74,7 +79,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
  
     /**
