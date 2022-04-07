@@ -11,11 +11,12 @@ use App\HTTP\Controllers\GundemController;
 use App\HTTP\Controllers\AdminController;
 use App\HTTP\Controllers\CategoryController;
 use App\HTTP\Controllers\NewsController;
+use App\HTTP\Controllers\SettingsController;
 use App\HTTP\Controllers\ImageController;
 
 
 Route::get('/',[HomeController::class,"index"])->name('home');
-/* bir parametre aldığında calisir */
+/* bir parametre aldığında calisir */ 
 Route::get('/blog',function(){
     return view('home.blog',['page'=>'blog']);
 });
@@ -71,6 +72,12 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::post('store/{id}',[ImageController::class,'store'])->name('admin_images_store');
         Route::get('delete/{id}/{news_id}',[ImageController::class,'destroy'])->name('admin_image_delete');
         Route::get('show',[ImageController::class,'show'])->name('show');
+    });
+
+    #Settings
+    Route::prefix('settings')->group(function(){
+        Route::get('/',[SettingsController::class,'index'])->name('admin_settings');
+        Route::get('/update',[SettingsController::class,'update'])->name('admin_settings_update');
     });
 });
 

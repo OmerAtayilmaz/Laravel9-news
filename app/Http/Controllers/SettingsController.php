@@ -14,7 +14,14 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        //
+        $data=Settings::first();
+        if(empty($data)){ 
+            $data=new Settings();
+            $data->title="Ampulhaber";
+            $data->save();
+        }    
+
+        return view('admin.admin_settings');
     }
 
     /**
