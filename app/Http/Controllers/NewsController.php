@@ -18,9 +18,8 @@ class NewsController extends Controller
     public function index()
     {
         $datalist=News::all();
-        $categories=DB::table('categories')->get()->where('category_id',0);
         $users=DB::table('users')->get();
-        return view('admin.admin_news',['news'=>$datalist,'categories'=>$categories,'users'=>$users]);  /* home'daki index anlamına gelir */
+        return view('admin.admin_news',['news'=>$datalist,'users'=>$users]);  /* home'daki index anlamına gelir */
      }
     public function add(){
         $categories=DB::table('categories')->get()->where('parent_id',0);

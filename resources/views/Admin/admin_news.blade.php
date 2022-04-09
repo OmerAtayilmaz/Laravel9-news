@@ -28,11 +28,7 @@
                                     @foreach($news as $new)
                                     <tr>
                                             <th scope="row">{{$new->id??"Undefined"}}</th>
-                                            @foreach($categories as $category)
-                                                @if($new->category_id==$category->id)
-                                                    <td> {{$category->title }} </td>
-                                                @endif
-                                            @endforeach
+                                            <td>{{$new->category->title }} </td>
                                             <td><small>  {{ $new->title??"Undefined" }} </small></td>
                                             @if($new->image)                      
                                                 <td><image width="40" src="{{Storage::url($new->image)}}"/></td>
