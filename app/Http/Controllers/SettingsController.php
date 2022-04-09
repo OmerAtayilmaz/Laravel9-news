@@ -19,9 +19,10 @@ class SettingsController extends Controller
             $data=new Settings();
             $data->title="Ampulhaber";
             $data->save();
+            $data=Settings::first();
         }    
 
-        return view('admin.admin_settings');
+        return view('admin.admin_settings',['data'=>$data]);
     }
 
     /**
@@ -76,7 +77,26 @@ class SettingsController extends Controller
      */
     public function update(Request $request, Settings $settings)
     {
-        //
+        $id =$request->input('id');
+        $data = Settings::find($id);
+        $data->title=$request->input('title');
+        $data->keywords=$request->input('keywords');
+        $data->description=$request->input('description');
+        $data->company=$request->input('company');
+        $data->phone=$request->input('phone');
+        $data->fax=$request->input('fax');
+        $data->email=$request->input('email');
+        $data->status=$request->input('status');
+        $data->smtpserver=$request->input('smtpserver');
+        $data->smtpemail=$request->input('smtpemail');
+        $data->smtppassword=$request->input('smtppassword');
+        $data->smtpport=$request->input('smtpport');
+        $data->adress=$request->input('adress');
+        $data->references=$request->input('references');
+        $data->contact=$request->input('contact');
+        $data->aboutus=$request->input('aboutus');
+        $data->save();
+        return redirect(route('admin_settings'));
     }
 
     /**

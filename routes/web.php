@@ -77,7 +77,7 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     #Settings
     Route::prefix('settings')->group(function(){
         Route::get('/',[SettingsController::class,'index'])->name('admin_settings');
-        Route::get('/update',[SettingsController::class,'update'])->name('admin_settings_update');
+        Route::post('/update',[SettingsController::class,'update'])->name('admin_settings_update');
     });
 });
 
