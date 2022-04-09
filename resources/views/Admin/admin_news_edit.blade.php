@@ -22,10 +22,7 @@
                                 <select name="category_id" class="form-select" id="category_id"
                                     aria-label="Floating label select example">
                                     @foreach($categories as $category)
-                                        @if($category->id==$currentNews->category_id)
-                                            <option value="{{$category->id}}" selected>Seçilen: {{$category->title}}</option>
-                                        @endif
-                                        <option value="{{$category->id}}">{{$category->title}}</option>
+                                            <option value="{{$category->id}}" @if ($category->id==$currentNews->category_id) selected="selected" @endif>{{ \App\Http\Controllers\CategoryController::getParentsTree($category,$category->title) }}</option>                                 
                                     @endforeach
                                 </select>
                                 <label for="category_id">Works with selects</label>

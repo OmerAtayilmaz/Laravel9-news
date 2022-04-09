@@ -22,7 +22,7 @@ class NewsController extends Controller
         return view('admin.admin_news',['news'=>$datalist,'users'=>$users]);  /* home'daki index anlamına gelir */
      }
     public function add(){
-        $categories=DB::table('categories')->get()->where('parent_id',0);
+        $categories = Category::with('children')->get();
         return view('admin.admin_new_create',['categories' => $categories]);
     }
     public function create(Request $request)

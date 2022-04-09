@@ -1,3 +1,6 @@
+@php
+    $parentCategories=\App\Http\Controllers\HomeController::categorylist();
+@endphp
 <div class="container-fluid bg-faded fh5co_padd_mediya padding_786">
             <div class="container padding_786">
                 <nav class="navbar navbar-toggleable-md navbar-light">
@@ -23,25 +26,9 @@
                         id="navbarSupportedContent"
                     >
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item {{$page=='index'?'active':''}}">
-                                <a class="nav-link" href="/"
-                                    >Home
-                                    <span class="sr-only">(current)</span></a
-                                >
-                            </li>
-                            <li class="nav-item {{$page=='blog'?'active':''}}">
-                                <a class="nav-link" href="/blog"
-                                    >Blog
-                                    <span class="sr-only">(current)</span></a
-                                >
-                            </li>
-                            <li class="nav-item {{$page=='magazine'?'active':''}}">
-                                <a class="nav-link" href="/magazine"
-                                    >Magazine
-                                    <span class="sr-only">(current)</span></a
-                                >
-                            </li>
-                            <li class="nav-item  dropdown">
+                            @foreach($parentCategories as $category)
+                             @if(count($category->children))
+                                <li class="nav-item dropdown">
                                 <a
                                     class="nav-link dropdown-toggle"
                                     href="#"
@@ -49,55 +36,23 @@
                                     data-toggle="dropdown"
                                     aria-haspopup="true"
                                     aria-expanded="false"
-                                    >World
+                                    >{{$category->title}}
                                     <span class="sr-only">(current)</span></a
                                 >
-                                <div
-                                    class="dropdown-menu"
-                                    aria-labelledby="dropdownMenuLink_1"
-                                >
-                                    <a class="dropdown-item" href="/world-news"
-                                        >World's news</a
+                                    <div
+                                        class="dropdown-menu"
+                                        aria-labelledby="dropdownMenuLink_1"
                                     >
-                                    <a class="dropdown-item" href="/newsbreak"
-                                        >Newsbreak</a
-                                    >
-                                  
-                                </div>
+                                    @include('home.categorytree',['children'=>$category->children])
+                                    </div>
+                             @else
+                             <li class="nav-item">
+                                <a class="nav-link" href="#" >{{$category->title}}
+                                    <span class="sr-only">(current)</span></a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="/community"
-                                    id="dropdownMenuButton3"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    >Community<span class="sr-only"
-                                        >(current)</span
-                                    ></a
-                                >
-                                <div
-                                    class="dropdown-menu"
-                                    aria-labelledby="dropdownMenuLink_1"
-                                >
-                                    <a class="dropdown-item" href="#"
-                                        >Rich Persons </a
-                                    >
-                                    <a class="dropdown-item" href="#"
-                                        >Science Community</a
-                                    >
-                                    <a class="dropdown-item" href="#"
-                                        >Celebrity Community</a
-                                    >
-                                </div>
+                             @endif
                             </li>
-                            <li class="nav-item {{$page=='contact'?'active':''}}">
-                                <a class="nav-link" href="/contact"
-                                    >Contact
-                                    <span class="sr-only">(current)</span></a
-                                >
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </nav>

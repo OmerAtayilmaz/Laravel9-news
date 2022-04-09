@@ -57,7 +57,7 @@
                                   
                                     <tr>
                                             <th scope="row">{{$category->id??"Undefined"}}</th>
-                                            <td>  {{ $category->title??"Undefined" }} </td>
+                                            <td>  {{ \App\Http\Controllers\CategoryController::getParentsTree($category,$category->title) }} </td>
                                             <td><small>  {{ $category->description??"Undefined" }} </small></td>
                                             <td>  {{ $category->keywords??"Undefined" }} </td>
                                             <td> <small>{{ $category->description??"Undefined" }}</small></td>

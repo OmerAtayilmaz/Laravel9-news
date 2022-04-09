@@ -43,7 +43,7 @@
                                     aria-label="Floating label select example">
                                     <option selected>Parent id</option>
                                     @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->title}}</option>
+                                        <option value="{{$category->id}}">{{ \App\Http\Controllers\CategoryController::getParentsTree($category,$category->title) }}</option>
                                     @endforeach
                                 </select>
                                 <label for="floatingSelect">Works with selects</label>

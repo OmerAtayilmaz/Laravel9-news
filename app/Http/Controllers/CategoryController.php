@@ -20,8 +20,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = DB::table('categories')->get();
-
+        $categories = Category::with('children')->get();
        return view('admin.admin_category',['categories' => $categories]);
     }
 
@@ -32,7 +31,7 @@ class CategoryController extends Controller
      */
     public function add()
     {
-        $categories=DB::table('categories')->get()->where('parent_id',0);
+        $categories=DB::table('categories')->get();
         return view('admin.admin_category_create',['categories' => $categories]);
     }
 
@@ -92,8 +91,7 @@ class CategoryController extends Controller
     {
        // $category=DB::table('categories')->get()->where('id',$id);
         $currentCategory=Category::find($id);
-        $categories=DB::table('categories')->get()->where('parent_id',0);
-     
+        $categories=Category::with('children')->get();
         return view('admin.admin_category_edit',['categories' => $categories,'currentCategory'=>$currentCategory]);
     }
 
