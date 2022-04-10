@@ -6,9 +6,9 @@
 @include('admin._admin-sidebar')
 <div class="content">
     @include('admin._admin-navbar')
-    <div class="w-100 h-auto">
+    <div class="w-100 h-auto p-2">
         <h3 class="text-center ">Our Social Media Accounts</h3>
-    <table class="table table-bordered table-hover table-dark">
+    <table class="table table-bordered table-hover table-light">
         <thead>
             <tr>
             <th scope="col">#</th>
@@ -22,32 +22,18 @@
         <tbody>
             @foreach($data as $account)
             <tr>
-                <th scope="row">1</th>
+                <th scope="row">{{$account->id}}</th>
                 <td>{{$account->name}}</td>
                 <td>{{$account->title}}</td>
                 <td>{{$account->description}}</td>
-                <td><img width="40" src="{{Storage::url('images/download.png')}}"></td>
+                <td><img width="40" src="{{Storage::url($account->image)}}"></td>
                 <td>
                     <a type="button" href="/" class="btn btn-info">Edit</a>
-                    <a type="button" href="/" class="btn btn-secondary">Update</a>
                     <a type="button" href="/" class="btn btn-danger">Remove</a>
 
                 </td>
             </tr>
             @endforeach
-            <tr>
-                <th scope="row">1</th>
-                <td>Instagram</td>
-                <td>Our Instagram Account</td>
-                <td>We share about price discounts!</td>
-                <td><img width="40" src="{{Storage::url('images/download.png')}}"></td>
-                <td>
-                    <a type="button" href="/" class="btn btn-info">Edit</a>
-                    <a type="button" href="/" class="btn btn-secondary">Update</a>
-                    <a type="button" href="/" class="btn btn-danger">Remove</a>
-
-                </td>
-            </tr>
         </tbody>
     </table>
     </div>

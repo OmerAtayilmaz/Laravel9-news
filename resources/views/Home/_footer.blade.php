@@ -15,34 +15,15 @@
                             {{$data->description}}
                         </div>
                         <div class="footer_mediya_icon">
+                            @foreach($socialmedia as $account)
                             <div class="text-center d-inline-block">
                                 <a class="fh5co_display_table_footer">
                                     <div class="fh5co_verticle_middle">
-                                        <i class="fa fa-linkedin"></i>
+                                        <img width="32px" src="{{Storage::url($account->image)}}"/>
                                     </div>
                                 </a>
                             </div>
-                            <div class="text-center d-inline-block">
-                                <a class="fh5co_display_table_footer">
-                                    <div class="fh5co_verticle_middle">
-                                        <i class="fa fa-google-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="text-center d-inline-block">
-                                <a class="fh5co_display_table_footer">
-                                    <div class="fh5co_verticle_middle">
-                                        <i class="fa fa-twitter"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="text-center d-inline-block">
-                                <a class="fh5co_display_table_footer">
-                                    <div class="fh5co_verticle_middle">
-                                        <i class="fa fa-facebook"></i>
-                                    </div>
-                                </a>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-12 col-md-3 col-lg-2">
