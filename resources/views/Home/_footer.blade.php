@@ -12,11 +12,7 @@
                     <div class="col-12 col-md-4 col-lg-3">
                         <div class="footer_main_title py-3">About</div>
                         <div class="footer_sub_about pb-3">
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book.
+                            {{$data->description}}
                         </div>
                         <div class="footer_mediya_icon">
                             <div class="text-center d-inline-block">
@@ -198,11 +194,13 @@
                 <div class="row">
                     <div class="col-12 col-md-6 py-4 Reserved">
                         © Copyright 2018, All rights reserved.
+
                         <a
                             href="https://atayilmazbilisim.tech"
-                            title="Free HTML5 Bootstrap templates"
-                            >Ömer Atayilmaz</a
-                        >.
+                            title="Ömer Atayilmaz"
+                            author="Ömer Atayilmaz"
+                            >{{$data->company}}</a
+                        >
                     </div>
                     <div class="col-12 col-md-6 spdp_right py-4">
                         <a href="#" class="footer_last_part_menu">Home</a>

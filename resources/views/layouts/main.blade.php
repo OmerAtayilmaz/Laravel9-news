@@ -10,9 +10,10 @@
             Ampulhaber | @yield('title')
         </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <meta name="description" content=" @yield('description') "/>
-        <meta name="author" content=" @yield('author') "/>
+        <meta name="description" content="@yield('description') "/>
+        <meta name="author" content="Ömer Atayilmaz"/>
         <meta name="keywords" content=" @yield('keywords') "/>
+        <meta name="company" content="Ampulhaber Holding A.Ş"/>
         <link href="{{asset('assets')}}/media_query.css" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets')}}/css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link

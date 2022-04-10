@@ -13,6 +13,7 @@ use App\HTTP\Controllers\CategoryController;
 use App\HTTP\Controllers\NewsController;
 use App\HTTP\Controllers\SettingsController;
 use App\HTTP\Controllers\ImageController;
+use App\HTTP\Controllers\SocialmediaController;
 
 
 Route::get('/',[HomeController::class,"index"])->name('home');
@@ -78,6 +79,12 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     Route::prefix('settings')->group(function(){
         Route::get('/',[SettingsController::class,'index'])->name('admin_settings');
         Route::post('/update',[SettingsController::class,'update'])->name('admin_settings_update');
+    });
+    #SocialMedia
+    Route::prefix('social')->group(function(){
+        Route::get('/',[SocialmediaController::class,'index'])->name('socialmedia');
+        Route::post('/create',[SettingsController::class,'create'])->name('admin_socialmedia_create');
+        Route::post('/update',[SettingsController::class,'update'])->name('admin_socialmedia_update');
     });
 });
 
