@@ -7,4 +7,5 @@
     @include('home._trending')
     @include('home._newsSlider')
     @include('home._news')
+    @include('home._footer')
 @endsection

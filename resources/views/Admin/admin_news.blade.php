@@ -28,7 +28,7 @@
                                     @foreach($news as $new)
                                     <tr>
                                             <th scope="row">{{$new->id??"Undefined"}}</th>
-                                            <td>{{ \App\Http\Controllers\CategoryController::getParentsTree($new->category,$new->category->title) }} </td>
+                                            <td>{{$new->title }} </td>
                                             <td><small>  {{ $new->title??"Undefined" }} </small></td>
                                             @if($new->image)                      
                                                 <td><image width="40" src="{{Storage::url($new->image)}}"/></td>

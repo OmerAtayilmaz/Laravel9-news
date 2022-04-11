@@ -17,6 +17,7 @@ use App\HTTP\Controllers\SocialmediaController;
 
 
 Route::get('/',[HomeController::class,"index"])->name('home');
+Route::get('/auth',[HomeController::class,"panels"])->name('auth');
 /* bir parametre aldığında calisir */ 
 Route::get('/blog',function(){
     return view('home.blog',['page'=>'blog']);
