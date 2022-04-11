@@ -52,7 +52,7 @@
                             @endforeach
                             <li>
                             @auth
-                        <div class="nav-item dropdown mr-5 ">
+                        <div class="nav-item active dropdown mr-5 ">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i></a>
                             <div class="dropdown-menu">
                                 <a href="/myprofile" class="dropdown-item">Profile</a>

@@ -31,6 +31,7 @@ class NewsController extends Controller
         $category_id=$request->input('category_id');
         $keywords=$request->input('keywords');
         $type=$request->input('type');
+        $slug=$request->input('slug');
         $image=$request->input('image');
         $user_id=Auth::id();
         $status=$request->input('status');
@@ -44,6 +45,7 @@ class NewsController extends Controller
             'category_id' => $category_id,
             'keywords' => $keywords,
             'type'=>$type,
+            'slug'=>$slug,
             'user_id' => $user_id,
             'description' => $description,
             'detail'=>$detail,

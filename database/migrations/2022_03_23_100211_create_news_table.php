@@ -17,7 +17,7 @@ class CreateNewsTable extends Migration
             $table->id()->autoIncrement();
             $table->string('title',255);
             $table->string('keywords',255)->nullable();
-            $table->string('description',255)->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->string('slug')->nullable();
             $table->integer('category_id')->nullable();
@@ -25,8 +25,8 @@ class CreateNewsTable extends Migration
             $table->string('type',255)->nullable();
             $table->integer('user_id');
             $table->boolean('status')->nullable();
-            $table->timestamps();
-        });
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();        });
     }
 
     /**

@@ -19,8 +19,8 @@ class CreateSocialmediaTable extends Migration
             $table->string('image',255);
             $table->string('description',255);
             $table->string('title',255);
-            $table->timestamps();
-        });
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();        });
     }
 
     /**

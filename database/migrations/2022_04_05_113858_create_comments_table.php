@@ -21,8 +21,8 @@ class CreateCommentsTable extends Migration
             $table->string('user_id');
             $table->string('ip',255);
             $table->boolean('status');
-            $table->timestamps();
-        });
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();        });
     }
 
     /**

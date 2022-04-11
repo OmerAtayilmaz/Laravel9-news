@@ -41,7 +41,7 @@
                     <div class="form-floating mb-3">
                                 <select name="parent_id" class="form-select" id="floatingSelect"
                                     aria-label="Floating label select example">
-                                    <option selected>Parent id</option>
+                                    <option value="0" selected>Parent id</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{ \App\Http\Controllers\CategoryController::getParentsTree($category,$category->title) }}</option>
                                     @endforeach

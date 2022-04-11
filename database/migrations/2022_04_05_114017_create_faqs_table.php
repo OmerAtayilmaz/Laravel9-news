@@ -18,8 +18,8 @@ class CreateFaqsTable extends Migration
             $table->string('question',255);
             $table->text('answer');
             $table->boolean('status');
-            $table->timestamps();
-        });
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();        });
     }
 
     /**
