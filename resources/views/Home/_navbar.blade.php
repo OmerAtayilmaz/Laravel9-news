@@ -20,7 +20,7 @@
                     >
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home
+                                <a class="nav-link" href="{{route('home')}}">Home
                                     <span class="sr-only">(current)</span></a>
                             </li>
                             @foreach($parentCategories as $category)
@@ -28,7 +28,7 @@
                                 <li class="nav-item dropdown">
                                 <a
                                     class="nav-link dropdown-toggle"
-                                    href="#"
+                                    href="{{strtolower($category->title)}}"
                                     id="dropdownMenuButton2"
                                     data-toggle="dropdown"
                                     aria-haspopup="true"
@@ -45,26 +45,42 @@
                                     </li>
                              @else
                              <li class="nav-item">
-                                <a class="nav-link" href="#" >{{$category->title}}
+                                <a class="nav-link" href="{{strtolower($category->title)}}" >{{$category->title}}
                                     <span class="sr-only">(current)</span></a>
                             </li>
                              @endif
                             @endforeach
                             <li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{route('home')}}">Contact
+                                    <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{route('home')}}">References
+                                    <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{route('home')}}">FAQ
+                                    <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{route('home')}}">About Us
+                                    <span class="sr-only">(current)</span></a>
+                            </li>
                             @auth
-                        <div class="nav-item active dropdown mr-5 ">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i></a>
-                            <div class="dropdown-menu">
-                                <a href="/myprofile" class="dropdown-item">Profile</a>
-                                <a href="{{route('admin_home')}}" class="dropdown-item">Admin Paneli</a>
-                                <a href="{{route('admin_logout')}}" class="dropdown-item">Log out</a>
-                            </div>
-                            </div>
-                        @endauth
-                        @guest
-                        <span class="auth"><a href="/register">Sign up</a><small>/</small><a href="/login">Login</a></span>
-                        </div>
-                        @endguest
+                                <div class="nav-item active dropdown mr-5 ">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i></a>
+                                    <div class="dropdown-menu">
+                                        <a href="/myprofile" class="dropdown-item">Profile</a>
+                                        <a href="{{route('admin_home')}}" class="dropdown-item">Admin Paneli</a>
+                                        <a href="{{route('admin_logout')}}" class="dropdown-item">Log out</a>
+                                    </div>
+                                    </div>
+                                @endauth
+                                @guest
+                                <span class="auth"><a href="/register">Sign up</a><small>/</small><a href="/login">Login</a></span>
+                                </div>
+                                @endguest
                         </li>
                            
                         </ul>
