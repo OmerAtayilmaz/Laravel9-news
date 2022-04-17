@@ -28,7 +28,15 @@
                                     @foreach($news as $new)
                                     <tr>
                                             <th scope="row">{{$new->id??"Undefined"}}</th>
+<<<<<<< HEAD
                                             <td>{{ \App\Http\Controllers\CategoryController::getParentsTree($new->category,$new->category->title) }} </td>
+=======
+                                            @foreach($categories as $category)
+                                                @if($new->category_id==$category->id)
+                                                    <td> {{$category->title }} </td>
+                                                @endif
+                                            @endforeach
+>>>>>>> parent of c30e0ac (one to Many relationship feature between Category and News  uploaded)
                                             <td><small>  {{ $new->title??"Undefined" }} </small></td>
                                             @if($new->image)                      
                                                 <td><image width="40" src="{{Storage::url($new->image)}}"/></td>
