@@ -25,7 +25,8 @@ class CreateProductsTable extends Migration
             $table->integer('user_id')->nullable();
             $table->boolean('status')->nullable();
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();        });
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();        
+        });
     }
 
     /**

@@ -32,11 +32,11 @@ class AdminController extends Controller
   
          if (Auth::attempt($credentials)) {
              $request->session()->regenerate();
-             return redirect()->intended('home');
+             return redirect('/');
          }
   
          return back()->withErrors([
-             'email' => 'The provided credentials do not match our records.',
+             'email' => 'The provided credentials do not match our records!!',
          ]);
      }
      public function logout(Request $request)

@@ -36,9 +36,10 @@ Route::get('/video',function(){
 
 Route::get('/gundem/{uridata}',[GundemController::class,"index"])->name('gundem');
 
-Route::get('/world-news',function(Request $request){
+Route::get('/login',function(){
     echo "Hello world!";
 });
+
 /* Admin */
 Route::get('/admin',[AdminController::class,'index'])->name('admin_home')->middleware('auth');
 Route::get('/login',[AdminController::class,'login'])->name('login');
