@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Socialmedia;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class SocialmediaController extends Controller
 {
@@ -23,16 +22,15 @@ class SocialmediaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-
-        $data=new Socialmedia;
+        $data=new Image;
         $data->image=Storage::putFile('images',$request->file('image')); //File Uploading
-        $data->name=$request->input('name');
         $data->title=$request->input('title');
-        $data->description=$request->input('description');
+        $data->news_id=$id;
+
         $data->save();
-        return redirect(route("socialmedia"));
+        return redirect()->route("admin_image_create",['id'=>$id]);
     }
 
     /**

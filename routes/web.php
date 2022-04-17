@@ -84,8 +84,8 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     #SocialMedia
     Route::prefix('social')->group(function(){
         Route::get('/',[SocialmediaController::class,'index'])->name('socialmedia');
-        Route::post('/create',[SocialmediaController::class,'create'])->name('admin_socialmedia_create');
-        Route::post('/update',[SocialmediaController::class,'update'])->name('admin_socialmedia_update');
+        Route::post('/create',[SettingsController::class,'create'])->name('admin_socialmedia_create');
+        Route::post('/update',[SettingsController::class,'update'])->name('admin_socialmedia_update');
     });
 });
 

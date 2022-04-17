@@ -5,14 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Settings;
-use App\Models\Socialmedia;
 
 class HomeController extends Controller
 {
     public function index(){
         $data=Settings::first(); /* ilk satır gelir. */
-        $socialmedia=Socialmedia::all();
-        return view('home.index',['page'=>'index','data'=>$data,'socialmedia'=>$socialmedia]); /* home'daki index anlamına gelir */
+        return view('home.index',['page'=>'index','data'=>$data]); /* home'daki index anlamına gelir */
     }
 
     public static function categorylist(){
