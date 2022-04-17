@@ -1,7 +1,8 @@
 @extends('layouts.main')
 @section('title',"Anasayfa")
-@section('description',$data->description)
-@section('keywords',$data->keywords)
+@section('description')
+    Son dakika, doğru ve güvenilir haberin tek adresi!
+@endsection
 @section('content')
     @include('home._content')
     @include('home._trending')

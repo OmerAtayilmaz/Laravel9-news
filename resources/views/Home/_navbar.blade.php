@@ -1,8 +1,8 @@
 @php
     $parentCategories=\App\Http\Controllers\HomeController::categorylist();
 @endphp
-<div class="container-fluid bg-faded fh5co_padd_mediya">
-     
+<div class="container-fluid bg-faded fh5co_padd_mediya padding_786">
+            <div class="container padding_786">
                 <nav class="navbar navbar-toggleable-md navbar-light">
                     <button
                         class="navbar-toggler navbar-toggler-right mt-3"
@@ -15,11 +15,18 @@
                     >
                         <span class="fa fa-bars"></span>
                     </button>
+                    <a class="navbar-brand" href="/"
+                        ><img
+                            src="{{asset('assets')}}/images/logo.png"
+                            alt="img"
+                            class="mobile_logo_width"
+                    /></a>
                     <div
                         class="collapse navbar-collapse"
                         id="navbarSupportedContent"
                     >
                         <ul class="navbar-nav mr-auto">
+<<<<<<< HEAD
 <<<<<<< HEAD
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{route('home')}}">Home
@@ -29,6 +36,8 @@
 >>>>>>> parent of a116f70 (login-logout-signup process on home page)
                                     <span class="sr-only">(current)</span></a>
                             </li>
+=======
+>>>>>>> parent of c5b202b (creating sociam media table)
                             @foreach($parentCategories as $category)
                              @if(count($category->children))
                                 <li class="nav-item dropdown">
@@ -111,5 +120,5 @@
                         </ul>
                     </div>
                 </nav>
-         
+            </div>
         </div>
