@@ -5,7 +5,7 @@
 @section('content')
     @include('home._content')
     @include('home._trending')
-    @include('home._newsSlider',['category' => 'World'])
-    @include('home._news',['category' => 'Business'])
+    @include('home._newsSlider')
+    @include('home._news')
     @include('home._footer')
 @endsection

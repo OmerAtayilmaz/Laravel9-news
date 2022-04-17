@@ -24,8 +24,12 @@ class CreateProductsTable extends Migration
             $table->string('type',255)->nullable();
             $table->integer('user_id')->nullable();
             $table->boolean('status')->nullable();
+<<<<<<< HEAD
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();        
+=======
+            $table->timestamps();
+>>>>>>> parent of c1cabfb (fill out news to slider and categorize it)
         });
     }
 

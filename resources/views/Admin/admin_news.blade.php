@@ -15,7 +15,7 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Category</th>
-                                            <th scope="col">Slug</th>
+                                            <th scope="col">Title</th>
                                             <th scope="col">Image</th>
                                             <th scope="col">Gallery</th>
                                             <th scope="col">Type</th>
@@ -28,8 +28,8 @@
                                     @foreach($news as $new)
                                     <tr>
                                             <th scope="row">{{$new->id??"Undefined"}}</th>
-                                            <td>{{$new->category->title }} </td>
-                                            <td><small>  {{ $new->slug??"Undefined" }} </small></td>
+                                            <td>{{$new->title }} </td>
+                                            <td><small>  {{ $new->title??"Undefined" }} </small></td>
                                             @if($new->image)                      
                                                 <td><image width="40" src="{{Storage::url($new->image)}}"/></td>
                                             @else

@@ -18,8 +18,8 @@ class CreateImagesTable extends Migration
             $table->string('news_id',255);
             $table->string('title',255);
             $table->string('image',255);
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();        });
+            $table->timestamps();
+        });
     }
 
     /**

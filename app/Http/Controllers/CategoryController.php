@@ -44,12 +44,7 @@ class CategoryController extends Controller
     public function create(Request $request){
         
         $title=$request->input('title');
-
-        //parent id varsa
-        if($request->input('parent_id'))
-            $parent_id=$request->input('parent_id');
-        else //yoksa
-            $parent_id=0;
+        $parent_id=$request->input('parent_id');
         $keywords=$request->input('keywords');
         $slug=$request->input('slug');
         $description=$request->input('description');

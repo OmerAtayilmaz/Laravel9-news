@@ -15,16 +15,15 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->integer('parent_id')->nullable()->default(0);
-            $table->string('title',150)->nullable()->default("Undefined Title");
+            $table->integer('parent_id')->default(0);
+            $table->string('title',150);
             $table->string('keywords')->nullable();
             $table->string('description')->nullable();
             $table->string('image',100)->nullable();
             $table->string('status',5)->nullable()->default('False');
             $table->string('slug',100);
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-            
+            $table->timestamps();
+  
         });
     }
 

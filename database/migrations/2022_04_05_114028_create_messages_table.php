@@ -22,8 +22,8 @@ class CreateMessagesTable extends Migration
             $table->text('message');
             $table->string('ip');
             $table->string('status');
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();        });
+            $table->timestamps();
+        });
     }
 
     /**

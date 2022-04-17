@@ -68,6 +68,7 @@
                                     <span class="sr-only">(current)</span></a>
                             </li>
                             @auth
+<<<<<<< HEAD
                                 <div class="nav-item active dropdown mr-5 ">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i></a>
                                     <div class="dropdown-menu">
@@ -81,6 +82,21 @@
                                 <span class="auth"><a href="/register">Sign up</a><small>/</small><a href="/login">Login</a></span>
                                 </div>
                                 @endguest
+=======
+                        <div class="nav-item dropdown mr-5 ">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="/myprofile" class="dropdown-item">Profile</a>
+                                <a href="{{route('admin_home')}}" class="dropdown-item">Admin Paneli</a>
+                                <a href="{{route('admin_logout')}}" class="dropdown-item">Log out</a>
+                            </div>
+                            </div>
+                        @endauth
+                        @guest
+                        <span class="auth"><a href="/register">Sign up</a><small>/</small><a href="/login">Login</a></span>
+                        </div>
+                        @endguest
+>>>>>>> parent of c1cabfb (fill out news to slider and categorize it)
                         </li>
                            
                         </ul>
