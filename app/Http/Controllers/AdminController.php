@@ -32,7 +32,12 @@ class AdminController extends Controller
   
          if (Auth::attempt($credentials)) {
              $request->session()->regenerate();
+<<<<<<< HEAD
              return redirect('/');
+=======
+  
+             return redirect()->intended('admin/dashboard');
+>>>>>>> parent of a116f70 (login-logout-signup process on home page)
          }
   
          return back()->withErrors([

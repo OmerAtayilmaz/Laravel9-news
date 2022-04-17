@@ -110,26 +110,37 @@
                     </div>
                     <div class="col-12 col-md-12 col-lg-4">
                         <div class="footer_main_title py-3">
-                            About Us
+                            Last Modified Posts
                         </div>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <span>Company:</span> {{$data->company}}
-                            </li>
-                            <li class="list-group-item">
-                                <span>Adress:</span> {{$data->adress}}
-                            </li>
-                            <li class="list-group-item">
-                                <span>Phone:</span> {{$data->phone}}
-                            </li>
-                            <li class="list-group-item">
-                                <span>Fax:</span> {{$data->fax}}
-                            </li>
-                            <li class="list-group-item">
-                                <span>Email:</span> {{$data->email}}
-                            </li>
-                   
-                        </ul>
+                        <a href="#" class="footer_img_post_6"
+                            ><img
+                                src="{{asset('assets')}}/images/allef-vinicius-108153.jpg"
+                                alt="img"
+                        /></a>
+                        <a href="#" class="footer_img_post_6"
+                            ><img src="{{asset('assets')}}/images/32-450x260.jpg" alt="img"
+                        /></a>
+                        <a href="#" class="footer_img_post_6"
+                            ><img src="{{asset('assets')}}/images/download (1).jpg" alt="img"
+                        /></a>
+                        <a href="#" class="footer_img_post_6"
+                            ><img src="{{asset('assets')}}/images/science-578x362.jpg" alt="img"
+                        /></a>
+                        <a href="#" class="footer_img_post_6"
+                            ><img src="{{asset('assets')}}/images/vil-son-35490.jpg" alt="img"
+                        /></a>
+                        <a href="#" class="footer_img_post_6"
+                            ><img src="{{asset('assets')}}/images/zack-minor-15104.jpg" alt="img"
+                        /></a>
+                        <a href="#" class="footer_img_post_6"
+                            ><img src="{{asset('assets')}}/images/download.jpg" alt="img"
+                        /></a>
+                        <a href="#" class="footer_img_post_6"
+                            ><img src="{{asset('assets')}}/images/download (2).jpg" alt="img"
+                        /></a>
+                        <a href="#" class="footer_img_post_6"
+                            ><img src="{{asset('assets')}}/images/ryan-moreno-98837.jpg" alt="img"
+                        /></a>
                     </div>
                 </div>
                 <div class="row justify-content-center pt-2 pb-4">
@@ -190,4 +201,20 @@
         <div class="gototop js-top">
             <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
         </div>
-       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="{{asset('assets')}}/js/owl.carousel.min.js"></script>
+        <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"
+        ></script>
+        <!-- Waypoints -->
+        <script src="{{asset('assets')}}/js/jquery.waypoints.min.js"></script>
+        <!-- Main -->
+        <script src="{{asset('assets')}}/js/main.js"></script>

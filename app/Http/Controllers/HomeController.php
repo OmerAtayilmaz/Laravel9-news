@@ -19,9 +19,7 @@ class HomeController extends Controller
         return Category::where('parent_id','=',0)->with('children')->get();
     }
 
-    public function panels(){
-        return view('home.auth');
-    }
+
 
   
 }

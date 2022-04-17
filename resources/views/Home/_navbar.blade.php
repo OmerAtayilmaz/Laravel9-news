@@ -2,6 +2,7 @@
     $parentCategories=\App\Http\Controllers\HomeController::categorylist();
 @endphp
 <div class="container-fluid bg-faded fh5co_padd_mediya">
+     
                 <nav class="navbar navbar-toggleable-md navbar-light">
                     <button
                         class="navbar-toggler navbar-toggler-right mt-3"
@@ -19,8 +20,13 @@
                         id="navbarSupportedContent"
                     >
                         <ul class="navbar-nav mr-auto">
+<<<<<<< HEAD
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{route('home')}}">Home
+=======
+                        <li class="nav-item active">
+                                <a class="nav-link" href="#">Home
+>>>>>>> parent of a116f70 (login-logout-signup process on home page)
                                     <span class="sr-only">(current)</span></a>
                             </li>
                             @foreach($parentCategories as $category)
@@ -42,14 +48,15 @@
                                     >
                                     @include('home.categorytree',['children'=>$category->children])
                                     </div>
-                                    </li>
                              @else
                              <li class="nav-item">
                                 <a class="nav-link" href="{{strtolower($category->title)}}" >{{$category->title}}
                                     <span class="sr-only">(current)</span></a>
                             </li>
                              @endif
+                            </li>
                             @endforeach
+<<<<<<< HEAD
                             <li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="{{route('home')}}">Contact
@@ -99,9 +106,9 @@
 >>>>>>> parent of c1cabfb (fill out news to slider and categorize it)
                         </li>
                            
+=======
+>>>>>>> parent of a116f70 (login-logout-signup process on home page)
                         </ul>
-                        <div class="auth">
-                      
                     </div>
                 </nav>
          
