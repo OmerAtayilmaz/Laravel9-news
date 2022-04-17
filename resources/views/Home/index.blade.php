@@ -1,0 +1,11 @@
+@extends('layouts.main')
+@section('title',"Anasayfa")
+@section('description',$data->description)
+@section('keywords',$data->keywords)
+@section('content')
+    @include('home._content')
+    @include('home._trending')
+    @include('home._newsSlider',['category' => 'World'])
+    @include('home._news',['category' => 'Business'])
+    @include('home._footer')
+@endsection
