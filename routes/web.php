@@ -14,7 +14,6 @@ use App\HTTP\Controllers\NewsController;
 use App\HTTP\Controllers\SettingsController;
 use App\HTTP\Controllers\ImageController;
 use App\HTTP\Controllers\SocialmediaController;
-use App\HTTP\Controllers\UserController;
 
 
 Route::get('/',[HomeController::class,"index"])->name('home');
@@ -45,13 +44,11 @@ Route::get('/admin',[AdminController::class,'index'])->name('admin_home')->middl
 Route::get('/login',[AdminController::class,'login'])->name('login');
 Route::post('/admin/logincheck',[AdminController::class,'logincheck'])->name('admin_logincheck');
 Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin_logout');
-Route::middleware('auth')->group(function(){
-    Route::get('/myprofile',[UserController::class,'index'])->name('user_profile');
-});
+
 /* Admin->category with auth! */
 Route::middleware('auth')->prefix('admin')->group(function(){
     /* prefix asagidakilerin hepsinin önüne eklenir. admin/category/add,admin/category/delet etc. */
-    
+
     /* Categories */
     Route::get('category/',[CategoryController::class,'index'])->name('admin_category');
     Route::get('category/add',[CategoryController::class,'add'])->name('admin_category_add');
@@ -70,7 +67,6 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::post('/update/{id}',[NewsController::class,'update'])->name('admin_news_update');
         Route::get('/edit/{id}',[NewsController::class,'edit'])->name('admin_news_edit');
         Route::get('/delete/{id}',[NewsController::class,'destroy'])->name('admin_news_delete');
-
     });
     #Image Image Gallery
     Route::prefix('images')->group(function(){
@@ -91,17 +87,8 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::post('/create',[SocialmediaController::class,'create'])->name('admin_socialmedia_create');
         Route::post('/update',[SocialmediaController::class,'update'])->name('admin_socialmedia_update');
     });
-
 });
 
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware([
     'auth:sanctum',

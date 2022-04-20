@@ -1629,9 +1629,6 @@ select {
 .text-right {
   text-align: right;
 }
-.align-baseline {
-  vertical-align: baseline;
-}
 .align-middle {
   vertical-align: middle;
 }

@@ -9,7 +9,7 @@ return [
     /*
     |--------------------------------------------------------------------------
     | Default Log Channel
-    |--------------------------------------------------------------------------
+    |-------------------registerr-------------------------------------------------------
     |
     | This option defines the default log channel that gets used when writing
     | messages to the logs. The name specified in this option should match
