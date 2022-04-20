@@ -3,20 +3,23 @@
 @section('description',"asdadasd")
 @section('keywords',"asdasds")
 @section('content')
-    <div class="col-md-4">
-    <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action">
-    Cras justo odio
-  </a>
-  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
-</div>
-    </div>
-    <div class="col-md-8">
-        <!-- DASH -->
-        @include('dashboard')
-    </div>
+   <div class="container">
+           <div class="row m-0 p-0">
+           <div class="col-md-2 bg-dark m-0 p-0">
+           <div class="navbar-light m-0 p-0">
+                <ul class="navbar-nav m-0 p-0 mt-3">
+                        <li class="nav-item mb-1 p-0 active"><a href="myprofile" class="nav-link">Profile</a></li>
+                        <li class="nav-item mb-1 "><a href="myprofile" class="nav-link">Articles</a></li>
+                        <li class="nav-item mb-1 "><a href="myprofile" class="nav-link">News</a></li>
+                        <li class="nav-item mb-1 "><a href="myprofile" class="nav-link">Account</a></li>
+                </ul>
+           </div>
+                </div>
+                <div class="col-md-10">
+                        <!-- DASH -->
+                        @include('profile.show')
+                </div>
+           </div>
+   </div>
    
 @endsection

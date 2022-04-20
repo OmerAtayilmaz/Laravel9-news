@@ -13,31 +13,20 @@ use App\HTTP\Controllers\CategoryController;
 use App\HTTP\Controllers\NewsController;
 use App\HTTP\Controllers\SettingsController;
 use App\HTTP\Controllers\ImageController;
+use App\HTTP\Controllers\UserController;
 use App\HTTP\Controllers\SocialmediaController;
 
 
 Route::get('/',[HomeController::class,"index"])->name('home');
 Route::get('/auth',[HomeController::class,"panels"])->name('auth');
+
+/* Redirectings */
+Route::redirect('/home','/');
+
 /* bir parametre aldığında calisir */ 
-Route::get('/blog',function(){
-    return view('home.blog',['page'=>'blog']);
-});
-Route::get('/magazine',function(){
-    return view('home.magazine',['page'=>'magazine']);
-});
-Route::get('/contact',function(){
-    return view('home.contact',['page'=>'contact']);
-});
-Route::get('/ekonomi/{id}',[EkonomiController::class,"test"])->name('ekonomi')->where('id','[0-9]+');
-Route::redirect('/home',"/",301);/* "/home" yazarsa "/" gider */
-Route::get('/video',function(){
-    return view('home.video',["mydata"=>"Ömer Atayilmaz"]);
-})->name('video');
 
-Route::get('/gundem/{uridata}',[GundemController::class,"index"])->name('gundem');
-
-Route::get('/world-news',function(Request $request){
-    echo "Hello world!";
+Route::middleware('auth')->group(function(){
+    Route::get('/myprofile',[UserController::class,'index'])->name('profile');
 });
 /* Admin */
 Route::get('/admin',[AdminController::class,'index'])->name('admin_home')->middleware('auth');

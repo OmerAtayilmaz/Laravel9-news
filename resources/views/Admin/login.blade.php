@@ -58,7 +58,7 @@
                             <a href="" >Forgot Password</a>
                         </div>
                         <button type="submit" class="btn btn-dark py-3 w-100 mb-4">Sign In</button>
-                        <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p>
+                        <p class="text-center mb-0">Don't have an Account? <a href="/register">Sign Up</a></p>
                     </form>
                 </div>
             </div>

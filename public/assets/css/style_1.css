@@ -99,6 +99,7 @@ a:hover {
     position: relative;
     top: -10px
 }
+/* Navbar */
 
 .navbar-light .navbar-nav .open>.nav-link,
 .navbar-light .navbar-nav .active>.nav-link,
@@ -152,6 +153,7 @@ a:hover {
     margin: 0 10px;
     position: relative
 }
+
 
 .fh5co_padding_menu {
     padding: 20px 0
@@ -1144,6 +1146,9 @@ a:hover {
     box-shadow: none;
     font-size: 0.8rem;
     color: #c9c8c8;
+}
+.list-group-item .active{
+    background-color: #f5bc04 !important;
 }
 
 .list-group-item span {
