@@ -17,14 +17,15 @@ use App\HTTP\Controllers\UserController;
 use App\HTTP\Controllers\SocialmediaController;
 
 
+/* Home */
 Route::get('/',[HomeController::class,"index"])->name('home');
 Route::get('/auth',[HomeController::class,"panels"])->name('auth');
-
-/* Redirectings */
 Route::redirect('/home','/');
+Route::get('/contactus',[HomeController::class,"contact"])->name('contact_us');
+Route::get('/aboutus',[HomeController::class,"about"])->name('about_us');
+Route::get('/references',[HomeController::class,"references"])->name('references');
 
-/* bir parametre aldığında calisir */ 
-
+/* If Logged İn */
 Route::middleware('auth')->group(function(){
     Route::get('/myprofile',[UserController::class,'index'])->name('profile');
 });

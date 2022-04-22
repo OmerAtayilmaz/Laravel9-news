@@ -28,6 +28,19 @@ class HomeController extends Controller
         ]);  /* home'daki index anlamına gelir */
     }
 
+    public function contact(){
+        $contact=Settings::first()->contact;
+        return view('home.contact',['contact'=>$contact]);
+    }
+    public function about(){
+        $about=Settings::first()->aboutus;
+        return view('home.about',['about'=>$about]);
+    }
+    public function references(){
+        $references=Settings::first()->references;
+        $references;
+        return view('home.references',['references'=>$references]);
+    }
     public static function categorylist(){
         return Category::where('parent_id','=',0)->with('children')->get();
     }

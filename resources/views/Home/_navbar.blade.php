@@ -52,19 +52,19 @@
                             @endforeach
                             <li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="{{route('home')}}">Contact
+                                <a class="nav-link" href="{{route('contact_us')}}">Contact
                                     <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="{{route('home')}}">References
+                                <a class="nav-link" href="{{route('about_us')}}">About
+                                    <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{route('references')}}">References
                                     <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="{{route('home')}}">FAQ
-                                    <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{route('home')}}">About Us
                                     <span class="sr-only">(current)</span></a>
                             </li>
                             @auth
