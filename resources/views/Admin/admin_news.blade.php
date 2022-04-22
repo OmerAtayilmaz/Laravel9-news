@@ -1,10 +1,5 @@
-@include('admin._admin-head')
-<div class="container-xxl position-relative bg-white d-flex p-0">
-<!-- spinner -->
-@include('admin._admin-spinner')
-@include('admin._admin-sidebar')
-<div class="content">
-    @include('admin._admin-navbar')
+@extends('layouts.admin')
+@section('content')
     <div class="col-12">
       
                          <div class="bg-light rounded h-100 p-4">
@@ -59,9 +54,4 @@
                             </div>
                         </div> 
     </div>
-</div>
-<a href="#" class="btn btn-lg btn-warning btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-@include('admin._admin-scripts')
-
-</body>
-</html>
+@endsection

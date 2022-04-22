@@ -14,8 +14,8 @@ use App\HTTP\Controllers\NewsController;
 use App\HTTP\Controllers\SettingsController;
 use App\HTTP\Controllers\ImageController;
 use App\HTTP\Controllers\UserController;
+use App\HTTP\Controllers\MessageController;
 use App\HTTP\Controllers\SocialmediaController;
-
 
 /* Home */
 Route::get('/',[HomeController::class,"index"])->name('home');
@@ -24,6 +24,7 @@ Route::redirect('/home','/');
 Route::get('/contactus',[HomeController::class,"contact"])->name('contact_us');
 Route::get('/aboutus',[HomeController::class,"about"])->name('about_us');
 Route::get('/references',[HomeController::class,"references"])->name('references');
+Route::post('/contactmessage',[HomeController::class,"message"])->name('contactus_message');
 
 /* If Logged İn */
 Route::middleware('auth')->group(function(){
@@ -76,6 +77,13 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::get('/',[SocialmediaController::class,'index'])->name('socialmedia');
         Route::post('/create',[SocialmediaController::class,'create'])->name('admin_socialmedia_create');
         Route::post('/update',[SocialmediaController::class,'update'])->name('admin_socialmedia_update');
+    });
+    #Contact Messages
+    Route::prefix('messages')->group(function(){
+        Route::get('/',[MessageController::class,'index'])->name('admin_messages');
+        Route::post('/update',[MessageController::class,'update'])->name('admin_message_update');
+        Route::get('delete/{id}',[MessageController::class,'destroy'])->name('admin_message_delete');
+        Route::get('show',[MessageController::class,'show'])->name('admin_message_show');
     });
 });
 

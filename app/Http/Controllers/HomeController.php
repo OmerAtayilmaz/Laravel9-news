@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Settings;
 use App\Models\Socialmedia;
+use App\Models\Message;
 use App\Models\News;
+use Illuminate\Support\Facades\Session;
+
 class HomeController extends Controller
 {
     public function index(){
@@ -32,6 +35,18 @@ class HomeController extends Controller
         $contact=Settings::first()->contact;
         return view('home.contact',['contact'=>$contact]);
     }
+    /* Contact Us Message */
+    public function message(Request $request){
+        $data=new Message();
+        $data->name=$request->input('name');
+        $data->email=$request->input('email');
+        $data->phone=$request->input('phone');
+        $data->subject=$request->input('subject');
+        $data->message=$request->input('message');
+        $data->ip=request()->ip();
+        $data->save();
+        return redirect(route('contact_us'))->with('success','Your message has been sent gracefully!');
+    }
     public function about(){
         $about=Settings::first()->aboutus;
         return view('home.about',['about'=>$about]);
@@ -49,5 +64,5 @@ class HomeController extends Controller
         return view('home.auth');
     }
 
-  
+    
 }
