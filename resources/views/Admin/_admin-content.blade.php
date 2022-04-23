@@ -1,10 +1,4 @@
-<div class="content">
-            <!-- Navbar Start -->
-            
-            @include('admin._admin-navbar')
-            <!-- Navbar End -->
 
-                
 
             <!-- Sale & Revenue Start -->
             @include('admin._admin-stats')
@@ -249,4 +243,3 @@
                     </div>
                 </div>
             </div>
-</div>

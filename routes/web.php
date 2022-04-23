@@ -81,7 +81,8 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     #Contact Messages
     Route::prefix('messages')->group(function(){
         Route::get('/',[MessageController::class,'index'])->name('admin_messages');
-        Route::post('/update',[MessageController::class,'update'])->name('admin_message_update');
+        Route::get('/edit/{id}',[MessageController::class,'edit'])->name('admin_message_edit');
+        Route::post('/update/{id}',[MessageController::class,'update'])->name('admin_message_update');
         Route::get('delete/{id}',[MessageController::class,'destroy'])->name('admin_message_delete');
         Route::get('show',[MessageController::class,'show'])->name('admin_message_show');
     });

@@ -57,9 +57,12 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(Message $message)
-    {
-        //
+    public function edit(Message $message,$id)
+    {   
+        $message=Message::find($id);
+        $message->status=false;
+        $message->save();
+        return view('admin.messages_edit',['message'=>$message]);
     }
 
     /**
@@ -69,9 +72,12 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Message $message)
+    public function update(Request $request, Message $message,$id)
     {
-        //
+        $message=Message::find($id);
+        $message->note=$request->input('note');
+        $message->save();
+        return back()->with('success',"Updated successfully!");
     }
 
     /**
@@ -83,6 +89,6 @@ class MessageController extends Controller
     public function destroy(Message $message, $id)
     {
         $deleted = DB::table('messages')->where('id',"=", $id)->delete();
-        return redirect(route('admin_messages'));
+        return redirect(route('admin_messages'))->with('error', "Mesaj Başarıyla Silindi");
     }
 }
