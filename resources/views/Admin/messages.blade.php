@@ -11,9 +11,9 @@
                      <tr>
                          <th scope="col">#</th>
                          <th scope="col">name</th>
-                         <th scope="col">subject</th>
+                         <th scope="col">email</th>
                          <th scope="col">ip</th>
-                         <th scope="col">status</th>
+                         <th scope="col">phone</th>
                          <th scope="col">Created At</th>
                          <th scope="col">Edit</th>
                      </tr>
@@ -23,14 +23,13 @@
                  <tr>
                          <th scope="row">{{$message->id??"Undefined"}}</th>
                          <td>{{$message->name }} </td>
-                         <td>  {{ $message->subject??"Undefined" }}</td>
+                         <td>  {{ $message->email??"Undefined" }}</td>
                          <td>  {{ $message->ip??"Undefined" }}</td>
-                         <td>  {{ $message->status??"Undefined" }}</td>
-                         <td>  {{ $message->status??"Undefined" }}</td>
-                         <td>{{$message->created_at??"******" }}</td>
+                         <td>  {{ $message->phone??"Undefined" }}</td>
+                         <td>  {{ $message->updated_at??"Undefined" }}</td>
                          <td>
                        <div class="btn-group" role="group">
-                             <a  href="{{route('admin_home',['id'=>$message->id])}}" type="button" class="btn btn-danger">Remove</a>
+                             <a  href="{{route('admin_message_delete',['id'=>$message->id])}}" type="button" class="btn btn-danger">Remove</a>
                              <a  href="{{route('admin_home',['id'=>$message->id])}}" type="button" class="btn btn-primary">Edit</a>
                              <a  href="$" type="button" class="btn btn-warning">Show</a>
                          </div> 

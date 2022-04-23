@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MessageController extends Controller
 {
@@ -79,8 +80,9 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy(Message $message, $id)
     {
-        //
+        $deleted = DB::table('messages')->where('id',"=", $id)->delete();
+        return redirect(route('admin_messages'));
     }
 }

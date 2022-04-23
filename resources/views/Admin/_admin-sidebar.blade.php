@@ -45,6 +45,7 @@
                             <a href="element.html" class="dropdown-item">Posts Stats</a>
                         </div>
                     </div>
+                    <a href="{{route('admin_messages')}}" class="nav-item nav-link "><i class="fa fa-message me-2"></i>Messages</a>
                     <a href="{{route('admin_settings')}}" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Settings</a>
                 </div>
             </nav>
