@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $datalist=News::all();
@@ -89,10 +84,7 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news)
-    {
-        //
-    }
+  
 
     /**
      * Show the form for editing the specified resource.
@@ -106,7 +98,6 @@ class NewsController extends Controller
          $currentNews=News::find($id);
          $news=DB::table('news')->get()->where('id',$id);
          $categories=DB::table('categories')->get()->where('category_id',0);
-
          return view('admin.admin_news_edit',['news' => $news,'currentNews'=>$currentNews,'categories'=>$categories]);
     }
 

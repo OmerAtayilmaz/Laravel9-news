@@ -2,7 +2,7 @@
         <div
             id="fh5co-title-box"
             style="
-                background-image: url(images/camila-cordeiro-114636.jpg);
+                background-image: url({{Storage::url($new->image)}});
                 background-position: 50% 90.5px;
             "
             data-stellar-background-ratio="0.5"
@@ -10,11 +10,11 @@
             <div class="overlay"></div>
             <div class="page-title">
                 <img
-                    src="{{asset('assets')}}/images/person_1.jpg"
+                    src="{{Storage::url($new->image)}}"
                     alt="Free HTML5 by FreeHTMl5.co"
                 />
                 <span>January 1, 2018</span>
-                <h2>How to write interesting articles</h2>
+                <h2>{{$new->title}}</h2>
             </div>
         </div>
         <div
@@ -28,25 +28,10 @@
                         data-animate-effect="fadeInLeft"
                     >
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Nulla malesuada enim id enim congue convallis.
-                            Praesent a cursus orci. Proin mauris eros, rhoncus
-                            in risus nec, vestibulum dignissim diam. Duis
-                            dapibus, magna ac fringilla consectetur, tellus quam
-                            aliquam quam, molestie tincidunt justo risus et
-                            nunc. Donec quis justo nec diam hendrerit facilisis
-                            placerat non magna. Class aptent taciti sociosqu ad
-                            litora torquent per conubia nostra, per inceptos
-                            himenaeos.
+                            {{$new->description}}
                         </p>
                         <p>
-                            Nulla tincidunt sit amet ligula interdum pulvinar.
-                            Sed nec volutpat enim. Praesent pretium ullamcorper
-                            quam, at rhoncus magna consectetur quis. Nulla
-                            condimentum, libero vel varius sodales, lacus urna
-                            accumsan purus, at mattis nisi nibh in lorem. Sed
-                            laoreet, ante vitae tincidunt auctor, sapien metus
-                            tincidunt ante, quis aliquam lacus risus id quam.
+                           {{$new->detail}}
                         </p>
                         <h3>Free HTML5 Templates</h3>
                         <p>
@@ -138,7 +123,7 @@
                         <div class="row pb-3">
                             <div class="col-5 align-self-center">
                                 <img
-                                    src="{{asset('assets')}}/images/download (1).jpg"
+                                    src="{{$new->image}}"
                                     alt="img"
                                     class="fh5co_most_trading"
                                 />

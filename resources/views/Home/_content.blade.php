@@ -19,7 +19,7 @@
                                 </a>
                             </div>
                             <div class="">
-                                <a href="single.html" class="fh5co_good_font">
+                                <a href="{{route('news',['id'=>$lastestNew->id,'slug'=>$lastestNew->slug])}}" class="fh5co_good_font">
                                 {{$lastestNew->title}}
                                 </a>
                             </div>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="row">
-                        @foreach($lastFour as $item)
+                        @foreach($sliderDataList as $item)
                             <div
                                 class="col-md-6 col-6 paddding animate-box"
                                 data-animate-effect="fadeIn"
@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="">
                                             <a
-                                                href="single.html"
+                                                href="{{route('news',['id'=>$item->id,'slug'=>$item->slug])}}"
                                                 class="fh5co_good_font_2"
                                             >
                                                 {{$item->title}}

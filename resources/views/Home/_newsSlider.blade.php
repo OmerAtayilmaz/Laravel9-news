@@ -17,7 +17,7 @@
                                 </div>
                                 <div>
                                     <a
-                                        href="single.html"
+                                        href="{{route('news',['id'=>$item->id,'slug'=>$item->slug])}}"
                                         class="d-block fh5co_small_post_heading"
                                         ><span class=""
                                             >{{$item->category->title}}</span

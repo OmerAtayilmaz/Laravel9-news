@@ -24,7 +24,7 @@
                             <div
                                 class="fh5co_latest_trading_img_position_absolute_1"
                             >
-                                <a href="single.html" class="text-white">
+                                <a href="{{route('news',['id'=>$new->id,'slug'=>$new->slug])}}" class="text-white">
                                     {{$new->title}}
                                 </a>
                                 <div

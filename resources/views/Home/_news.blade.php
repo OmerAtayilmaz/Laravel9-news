@@ -27,11 +27,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-7 animate-box">
-                                    <a href="single.html" class="fh5co_magna py-2">
+                                    <a href="{{route('news',['id'=>$item->id,'slug'=>$item->slug])}}" class="fh5co_magna py-2">
                                         {{$item->title}}
                                     </a>
                                     <a
-                                        href="single.html"
+                                        href="{{route('news',['id'=>$item->id,'slug'=>$item->slug])}}"
                                         class="fh5co_mini_time py-3"
                                     >
                                         Thomson Smith - {{  strftime("%d %b %Y",strtotime($item->updated_at)) }}

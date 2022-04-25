@@ -33,7 +33,7 @@
                          <td>
                        <div class="btn-group" role="group">
                              <a  href="{{route('admin_message_delete',['id'=>$message->id])}}" type="button" class="btn btn-danger">Remove</a>
-                             <a  href="{{route('admin_message_edit',['id'=>$message->id])}}" type="button" class="btn btn-primary" onclick="return !window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=1100px,height=500px');">Edit</a>
+                             <a  href="{{route('admin_message_edit',['id'=>$message->id])}}" type="button" class="btn btn-primary" onclick="return !window.open(this.href,'targetTab','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=500px,height=500px');">Edit</a>
                          </div> 
                          </td>
                      </tr>

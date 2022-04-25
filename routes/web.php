@@ -19,6 +19,7 @@ use App\HTTP\Controllers\SocialmediaController;
 
 /* Home */
 Route::get('/',[HomeController::class,"index"])->name('home');
+Route::get('/news/{id}/{slug}',[HomeController::class,"show"])->name('news');
 Route::get('/auth',[HomeController::class,"panels"])->name('auth');
 Route::redirect('/home','/');
 Route::get('/contactus',[HomeController::class,"contact"])->name('contact_us');
