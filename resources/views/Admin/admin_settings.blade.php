@@ -1,4 +1,5 @@
 @include('admin._admin-head')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
 <div class="container-xxl position-relative bg-white d-flex p-0">
 <!-- spinner -->
@@ -103,20 +104,20 @@
                                 <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body"> 
                                 <div class="form-floating">
-                                        <textarea class="form-control mb-3" name="adress"  id="adress" style="height: 150px;">{{$data->adress}}</textarea>
+                                        <textarea class="form-control summernote mb-3" name="adress"  id="adress" style="height: 150px;">{{$data->adress}}</textarea>
                                         <label for="adress">Adress</label>
                                 </div>
                                 
                                 <div class="form-floating">
-                                        <textarea class="form-control mb-3" name="references"  id="references" style="height: 150px;">{{$data->references}}</textarea>
+                                        <textarea class="form-control summernote mb-3" name="references"  id="references" style="height: 150px;">{{$data->references}}</textarea>
                                         <label for="references">references</label>
                                 </div>
                                 <div class="form-floating">
-                                        <textarea class="form-control mb-3" name="contact"  id="contact" style="height: 150px;">{{$data->contact}}</textarea>
+                                        <textarea class="form-control summernote mb-3" name="contact"  id="contact" style="height: 150px;">{{$data->contact}}</textarea>
                                         <label for="contact">contact</label>
                                 </div>
                                 <div class="form-floating">
-                                        <textarea class="form-control mb-3" name="aboutus"  id="aboutus" style="height: 150px;">{{$data->aboutus}}</textarea>
+                                        <textarea class="form-control summernote mb-3" name="aboutus"  id="aboutus" style="height: 150px;">{{$data->aboutus}}</textarea>
                                         <label for="aboutus">aboutus</label>
                                 </div>
                                 </div>
@@ -128,6 +129,7 @@
     </div>
 </div>
 </div>
+
 <a href="#" class="btn btn-lg btn-warning btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -139,8 +141,18 @@
     <script src="{{asset('assets')}}/lib/tempusdominus/js/moment.min.js"></script>
     <script src="{{asset('assets')}}/lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="{{asset('assets')}}/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    
+   
+<!-- include summernote css/js -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
+<script>
+        $(document).ready(function() {
+  $('.summernote').summernote();
+});
+        </script>
     <!-- Template Javascript -->
     <script src="{{asset('assets')}}/js/admin-main.js"></script>
+  
 </body>
 </html>

@@ -1,4 +1,5 @@
 @include('admin._admin-head')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
 <div class="container-xxl position-relative bg-white d-flex p-0">
 <!-- spinner -->
@@ -59,11 +60,11 @@
                                 <label for="floatingSelect">Works with selects</label>
                     </div>   
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" name="description"  id="description" style="height: 150px;"></textarea>
-                        <label for="description">Description</label>
+                        <textarea class="form-control summernote" name="description"  id="description" style="height: 150px;"></textarea>
+                        <label for="description">Descriptions</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" name="detail"  id="detail" style="height: 150px;"></textarea>
+                        <textarea class="form-control summernote" name="detail"  id="detail" style="height: 150px;"></textarea>
                         <label for="detail">Detail</label>
                     </div>
                     <button type="submit" class="btn btn-dark w-100 m-2">Create News</button>
@@ -74,7 +75,28 @@
 
 </div>
 <a href="#" class="btn btn-lg btn-warning btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-@include('admin._admin-scripts')
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('assets')}}/lib/chart/chart.min.js"></script>
+    <script src="{{asset('assets')}}/lib/easing/easing.min.js"></script>
+    <script src="{{asset('assets')}}/lib/waypoints/waypoints.min.js"></script>
+    <script src="{{asset('assets')}}/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{asset('assets')}}/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="{{asset('assets')}}/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="{{asset('assets')}}/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    
+   
+<!-- include summernote css/js -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
+<script>
+        $(document).ready(function() {
+  $('.summernote').summernote();
+});
+        </script>
+    <!-- Template Javascript -->
+    <script src="{{asset('assets')}}/js/admin-main.js"></script>
+  
 </body>
 </html>

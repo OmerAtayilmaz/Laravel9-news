@@ -35,7 +35,15 @@
                         <div class="text-center d-inline-block">
                             <a class="fh5co_display_table"
                                 ><div class="fh5co_verticle_middle">
-                                    <i class="fa fa-search"></i></div
+                                    <div class="header-search">
+                                    <form action="{{route('getnews')}}" method="post">
+                                        @csrf
+                                        @livewire('search')
+                                        <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+                                    </form>
+                                    @livewireScripts
+                                    </div>
+                                </div
                             ></a>
                         </div>
                         <div class="text-center d-inline-block">

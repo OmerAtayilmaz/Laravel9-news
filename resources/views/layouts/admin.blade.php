@@ -10,6 +10,5 @@
 </div>
 <a href="#" class="btn btn-lg btn-warning btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 @include('admin._admin-scripts')
-
 </body>
 </html>

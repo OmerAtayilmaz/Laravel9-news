@@ -28,7 +28,7 @@
                                 <li class="nav-item dropdown">
                                 <a
                                     class="nav-link dropdown-toggle"
-                                    href="{{strtolower($category->title)}}"
+                                    href="{{route('news_category',['id'=>$category->id,'slug'=>$category->slug])}}"
                                     id="dropdownMenuButton2"
                                     data-toggle="dropdown"
                                     aria-haspopup="true"
@@ -45,7 +45,7 @@
                                     </li>
                              @else
                              <li class="nav-item">
-                                <a class="nav-link" href="{{strtolower($category->title)}}" >{{$category->title}}
+                                <a class="nav-link" href="{{route('news_category',['id'=>$category->id,'slug'=>$category->slug])}}" >{{$category->title}}
                                     <span class="sr-only">(current)</span></a>
                             </li>
                              @endif

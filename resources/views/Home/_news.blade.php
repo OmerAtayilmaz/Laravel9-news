@@ -37,7 +37,7 @@
                                         Thomson Smith - {{  strftime("%d %b %Y",strtotime($item->updated_at)) }}
                                     </a>
                                     <div class="fh5co_consectetur">
-                                    {{$item->description}}
+                                    Short Description
                                     </div>
                                 </div>
                             </div>

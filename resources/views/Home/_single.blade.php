@@ -27,65 +27,36 @@
                         class="col-md-8 animate-box"
                         data-animate-effect="fadeInLeft"
                     >
+                    <h3> {{$new->title}}</h3>
                         <p>
-                            {{$new->description}}
+                            {!! $new->description !!}
                         </p>
+                        <br>
                         <p>
-                           {{$new->detail}}
+                        {!! $new->detail !!}
                         </p>
-                        <h3>Free HTML5 Templates</h3>
-                        <p>
-                            Nam vehicula viverra quam, nec ornare ex convallis
-                            eget. Praesent pulvinar, justo at lacinia elementum,
-                            dolor elit facilisis massa, vel feugiat elit massa
-                            et libero. Praesent hendrerit metus eu elementum
-                            commodo. Morbi tempus mi a nulla scelerisque, vitae
-                            vulputate nisi commodo. Maecenas felis urna, dictum
-                            quis mollis quis, mollis vel ligula. Nullam sodales
-                            sapien tellus, ornare tincidunt dolor imperdiet at.
-                            Vestibulum convallis, felis quis condimentum
-                            finibus, justo lectus aliquam libero, eu lacinia
-                            tellus leo eu orci.
-                        </p>
-                        <ul>
-                            <li>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Numquam, modi!
-                            </li>
-                            <li>
-                                Ea iure at, debitis culpa perspiciatis suscipit
-                                laudantium a, expedita.
-                            </li>
-                            <li>
-                                Voluptate distinctio perspiciatis cum sed ipsum
-                                nisi accusantium a aut!
-                            </li>
-                            <li>
-                                Sed vel quo dignissimos, quaerat totam officia,
-                                deserunt provident minus.
-                            </li>
-                        </ul>
-                        <p>
-                            Maecenas consequat dictum aliquam. Praesent nec
-                            magna at ipsum facilisis dictum sit amet nec arcu.
-                            Donec ac metus a elit rhoncus euismod et sit amet
-                            velit. Nunc quis lacus vel metus tincidunt vulputate
-                            in et libero. Aliquam dolor lacus, facilisis
-                            ultrices rutrum in, blandit vitae nulla. Nullam
-                            vestibulum, odio vitae aliquam aliquam, nibh dui
-                            iaculis augue, ut tristique nisi est in tellus.
-                            Fusce volutpat ultricies venenatis. In a arcu in
-                            tellus tincidunt accumsan. Nulla pretium at ex
-                            viverra vulputate. Cras mollis velit metus, non
-                            suscipit felis luctus sit amet. Ut vel leo vitae
-                            magna blandit tempor in sit amet arcu. Donec
-                            dignissim mattis dui. Donec ultrices malesuada
-                            sapien, ut fermentum nisi efficitur eu. Phasellus
-                            dui eros, posuere vel lacus vitae, venenatis feugiat
-                            libero. Nunc sed nisi feugiat, consequat arcu id,
-                            vehicula augue. Donec viverra tincidunt nisi eget
-                            ornare.
-                        </p>
+                    
+                        <hr>
+                        <div class="comments-container">
+                        <form class="commend-form">
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Example textarea</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                            <label for="rating">Rating</label>
+                            <select class="form-control" name="rating" id="rating">
+                                <option  value="1">★</option>
+                                <option value="2">★★</option>
+                                <option value="3" selected>★★★</option>
+                                <option value="4">★★★★</option>
+                                <option value="5">★★★★★</option>
+                            </select>
+                            </div>
+                            <a type="submit" class="btn btn-outline-primary">Comment</a>
+                        </from>
+                        </div>
+                      
                     </div>
                     <div
                         class="col-md-3 animate-box"
@@ -123,7 +94,7 @@
                         <div class="row pb-3">
                             <div class="col-5 align-self-center">
                                 <img
-                                    src="{{$new->image}}"
+                                    src="{{$new??$new->image}}"
                                     alt="img"
                                     class="fh5co_most_trading"
                                 />
@@ -191,13 +162,14 @@
                                     April 18, 2016
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
        
-
+       
         <div class="gototop js-top">
             <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
         </div>

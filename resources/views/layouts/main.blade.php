@@ -4,8 +4,6 @@
 <body>
     @include('home._header')
     @include('home._navbar')
- 
-  
         <div class="container-fluid m-0 p-0">
         @section('content')
         @show
