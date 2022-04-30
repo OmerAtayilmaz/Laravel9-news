@@ -72,6 +72,7 @@
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i></a>
                                     <div class="dropdown-menu">
                                         <a href="/myprofile" class="dropdown-item">Profile</a>
+                                        <a href="{{route('admin_home')}}" class="dropdown-item">My Reviews</a>
                                         <a href="{{route('admin_home')}}" class="dropdown-item">Admin Paneli</a>
                                         <a href="{{route('admin_logout')}}" class="dropdown-item">Log out</a>
                                     </div>

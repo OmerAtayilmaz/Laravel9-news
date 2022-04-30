@@ -53,16 +53,15 @@ class HomeController extends Controller
         $count=News::where('title','like','%'.$search.'%')->get()->count();
         if($count==1)
         {
-        $data=News::where('title',$request->input('search'))->first();
-        return redirect()->route('news',['id'=>$data->id,'slug'=>$data->slug]);
+            $data=News::where('title',$request->input('search'))->first();
+            return redirect()->route('news',['id'=>$data->id,'slug'=>$data->slug]);
         }else{
-       
             return redirect()->route('newslist',['search'=>$search]);
         }
     }
     public function newslist($search){
-        $datalist=News::where('title','like','%'.$search.'%')->get();
-        return view('home.search_news',['search'=>$search,'news'=>$datalist]);
+            $datalist=News::where('title','like','%'.$search.'%')->get();
+            return view('home.search_news',['search'=>$search,'news'=>$datalist]);
     }
     /* Contact Us Message */
     public function message(Request $request){

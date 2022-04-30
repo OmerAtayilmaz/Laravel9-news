@@ -37,24 +37,8 @@
                         </p>
                     
                         <hr>
-                        <div class="comments-container">
-                        <form class="commend-form">
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Example textarea</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                            <label for="rating">Rating</label>
-                            <select class="form-control" name="rating" id="rating">
-                                <option  value="1">★</option>
-                                <option value="2">★★</option>
-                                <option value="3" selected>★★★</option>
-                                <option value="4">★★★★</option>
-                                <option value="5">★★★★★</option>
-                            </select>
-                            </div>
-                            <a type="submit" class="btn btn-outline-primary">Comment</a>
-                        </from>
+                        <div class="container p-5">
+                        @livewire('comment',['id'=>$new->id])
                         </div>
                       
                     </div>
