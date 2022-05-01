@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Auth;
-use App\Models\User;
+
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,19 +14,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('Home.user_profile');
-    }
-    public function comments()
-    {
-        $datalist=Comment::where('user_id','=',Auth::user()->id)->get();
-        return view('Home.user_comments',['comments'=>$datalist]);
+        $datalist=Comment::all();
+        return view('admin.comments',['datalist'=>$datalist]);
     }
 
-    public function destroycomment(Comment $comment,$id){
-        $data=Comment::find($id);
-        $data->delete();
-        return redirect()->back()->with('success',"Comment removed gracefully!");
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -52,44 +42,47 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Comment $comment,$id)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Comment $comment,$id)
     {
-        //
+        $data=Comment::find($id);
+        return view('admin.comment_edit',['comment'=>$data]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Comment $comment, $id)
     {
-        //
+        $comment=Comment::find($id);
+        $comment->status=$request->input('status');
+        $comment->save();
+        return back()->with('success',"Updated successfully!");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Comment $comment)
     {
         //
     }

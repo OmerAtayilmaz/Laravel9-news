@@ -37,14 +37,7 @@
                             <a href="{{route('admin_category_add')}}" class="dropdown-item">Create Category</a>
                         </div>
                     </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-th me-2"></i>Posts</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{route('admin_category')}}" class="dropdown-item">All Posts</a>
-                            <a href="{{route('admin_category_add')}}" class="dropdown-item">Create Post</a>
-                            <a href="element.html" class="dropdown-item">Posts Stats</a>
-                        </div>
-                    </div>
+                    <a href="{{route('admin_comments')}}" class="nav-item nav-link "><i class="fa fa-comment me-2"></i>Comments</a>
                     <a href="{{route('admin_messages')}}" class="nav-item nav-link "><i class="fa fa-message me-2"></i>Messages</a>
                     <a href="{{route('admin_settings')}}" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Settings</a>
                 </div>

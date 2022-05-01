@@ -16,6 +16,7 @@ use App\HTTP\Controllers\ImageController;
 use App\HTTP\Controllers\UserController;
 use App\HTTP\Controllers\MessageController;
 use App\HTTP\Controllers\SocialmediaController;
+use App\HTTP\Controllers\CommentController;
 
 /* Home */
 Route::get('/',[HomeController::class,"index"])->name('home');
@@ -33,6 +34,8 @@ Route::post('/contactmessage',[HomeController::class,"message"])->name('contactu
 /* If Logged İn */
 Route::middleware('auth')->group(function(){
     Route::get('/myprofile',[UserController::class,'index'])->name('profile');
+    Route::get('/mycomments',[UserController::class,'comments'])->name('comments');
+    Route::get('/mycomments/{id}',[UserController::class,'destroycomment'])->name('user_comment_delete');
 });
 /* Admin */
 Route::get('/admin',[AdminController::class,'index'])->name('admin_home')->middleware('auth');
@@ -89,6 +92,14 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::post('/update/{id}',[MessageController::class,'update'])->name('admin_message_update');
         Route::get('delete/{id}',[MessageController::class,'destroy'])->name('admin_message_delete');
         Route::get('show',[MessageController::class,'show'])->name('admin_message_show');
+    });
+    #Comments
+    Route::prefix('comment')->group(function(){
+        Route::get('/',[CommentController::class,'index'])->name('admin_comments');
+        Route::get('/edit/{id}',[CommentController::class,'edit'])->name('admin_comment_edit');
+        Route::post('/update/{id}',[CommentController::class,'update'])->name('admin_comment_update');
+        Route::get('delete/{id}',[CommentController::class,'destroy'])->name('admin_comment_delete');
+        Route::get('show',[CommentController::class,'show'])->name('admin_comment_show');
     });
 });
 

@@ -6,10 +6,10 @@ use Livewire\Component;
 
 /* Ekledim */
 use App\Models\News;
-
+use Auth;
 class Comment extends Component
 {
-    public $record,$subject,$review,$news_id,$rate;
+    public $record,$comment,$news_id,$rate;
 
     public function mount($id){
         $this->record=News::findOrFail($id);
@@ -20,18 +20,29 @@ class Comment extends Component
         return view('livewire.comment');
     }
     public function resetInput(){
-        $this->subject=null;
-        $this->review=null;
+        $this->comment=null;
         $this->rate=null;
         $this->news_id=null;
-        $this->IP=null;
+        $this->ip=null;
     }
 
     public function store(){
+
         $this->validate([
-            'subject'=>'required|min:5',
-            'review'=>'required|min:10',
+            'comment'=>'required|min:10',
             'rate'=>'required',
         ]);
+        \App\Models\Comment::create([
+            'news_id'=>$this->news_id,
+            'user_id'=>Auth::id(),
+            'rate'=>$this->rate,
+            'status'=>true,
+            'ip'=>request()->ip(),
+            'comment'=>$this->comment,
+        ]);
+        session()->flush('message','Commented out successfully!');
+        $this->resetInput();
     }
+
+
 }
