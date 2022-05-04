@@ -39,6 +39,7 @@
                     </div>
                     <a href="{{route('admin_comments')}}" class="nav-item nav-link "><i class="fa fa-comment me-2"></i>Comments</a>
                     <a href="{{route('admin_messages')}}" class="nav-item nav-link "><i class="fa fa-message me-2"></i>Messages</a>
+                    <a href="{{route('admin_faq')}}" class="nav-item nav-link "><i class="fa fa-question me-2"></i>FAQ</a>
                     <a href="{{route('admin_settings')}}" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Settings</a>
                 </div>
             </nav>

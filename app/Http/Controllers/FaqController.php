@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
+use App\Models\Faq;
 use Illuminate\Http\Request;
 
-class CommentController extends Controller
+class FaqController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $datalist=Comment::all();
-        return view('admin.comments',['datalist'=>$datalist]);
+        $data=Faq::all();
+        return view('admin.faq',['data'=>$data]);
     }
 
     /**
@@ -42,50 +42,45 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function show(Comment $comment,$id)
+    public function show(Faq $faq)
     {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comment $comment,$id)
+    public function edit(Faq $faq)
     {
-        $data=Comment::find($id);
-        return view('admin.comment_edit',['comment'=>$data]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment, $id)
+    public function update(Request $request, Faq $faq)
     {
-        $comment=Comment::find($id);
-        $comment->status=$request->input('status');
-        $comment->save();
-        return back()->with('success',"Updated successfully!");
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment,$id)
+    public function destroy(Faq $faq)
     {
-        $data=Comment::find($id);
-        $data->delete();
-        return redirect()->back()->with('success',"Comment deleted successfully!");
+        //
     }
 }

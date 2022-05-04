@@ -17,6 +17,7 @@ use App\HTTP\Controllers\UserController;
 use App\HTTP\Controllers\MessageController;
 use App\HTTP\Controllers\SocialmediaController;
 use App\HTTP\Controllers\CommentController;
+use App\HTTP\Controllers\FaqController;
 
 /* Home */
 Route::get('/',[HomeController::class,"index"])->name('home');
@@ -100,6 +101,16 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::post('/update/{id}',[CommentController::class,'update'])->name('admin_comment_update');
         Route::get('delete/{id}',[CommentController::class,'destroy'])->name('admin_comment_delete');
         Route::get('show',[CommentController::class,'show'])->name('admin_comment_show');
+    });
+    #Faq
+    Route::prefix('faq')->group(function(){
+        Route::get('/',[FaqController::class,'index'])->name('admin_faq');
+        Route::get('create',[FaqController::class,'create'])->name('admin_faq_create');
+        Route::post('store',[FaqController::class,'store'])->name('admin_faq_store');
+        Route::get('edit/{id}',[FaqController::class,'edit'])->name('admin_faq_edit');
+        Route::post('update/{id}',[FaqController::class,'update'])->name('admin_faq_update');
+        Route::get('delete/{id}',[FaqController::class,'destroy'])->name('admin_faq_delete');
+        Route::get('show',[FaqController::class,'show'])->name('admin_faq_show');
     });
 });
 
