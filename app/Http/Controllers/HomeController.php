@@ -9,6 +9,7 @@ use App\Models\Socialmedia;
 use App\Models\Message;
 use App\Models\News;
 use App\Models\Comment;
+use App\Models\Faq;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -98,6 +99,10 @@ class HomeController extends Controller
         return Category::where('parent_id','=',0)->with('children')->get();
     }
 
+    public function faq(){
+        $faq=Faq::all()->sortBy('position');
+        return view('home.faq',['faq'=>$faq]);
+    }
     public function panels(){
         return view('home.auth');
     }

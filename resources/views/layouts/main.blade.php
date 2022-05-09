@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
    @include('home._head')
+   @yield('css')
 <body>
     @include('home._header')
     @include('home._navbar')

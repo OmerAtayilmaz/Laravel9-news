@@ -8,16 +8,16 @@
 <div class="content">
     @include('admin._admin-navbar')
     <div class="w-100 h-auto">
-            <form role="form" action="{{route('admin_news_create')}}" method="post"  enctype="multipart/form-data" class="bg-light rounded h-100 p-4">
+            <form role="form" action="{{route('admin_faq_store')}}" method="post"  enctype="multipart/form-data" class="bg-light rounded h-100 p-4">
                 @csrf
                     <h6 class="mb-4">Create FAQ</h6>
                     <div class="form-floating mb-3">
-                            <input name="title" type="text" class="form-control" id="title">
-                            <label for="title">Question</label>
+                            <input name="position" type="text" class="form-control" id="position">
+                            <label for="position">Position</label>
                     </div>
                     <div class="form-floating mb-3">
-                            <input name="title" type="text" class="form-control" id="title">
-                            <label for="title">Position</label>
+                            <input name="question" type="text" class="form-control" id="question">
+                            <label for="question">Question</label>
                     </div>
                     <div class="form-floating mb-3"> 
                         <select name="status" class="form-select" id="floatingSelect"
@@ -29,8 +29,9 @@
                         <label for="floatingSelect">Works with selects</label>
                     </div>   
                     <div class="form-floating mb-3">
-                        <textarea class="form-control summernote" name="description"  id="description" style="height: 150px;"></textarea>
-                        <label for="description">Answer</label>
+                    <h6>Answer</h6>
+                        <textarea class="form-control summernote" name="answer"  id="answer" style="height: 150px;"></textarea>
+                       
                     </div>
                
                     <button type="submit" class="btn btn-dark w-100 m-2">Create News</button>

@@ -31,6 +31,7 @@ Route::get('/contactus',[HomeController::class,"contact"])->name('contact_us');
 Route::get('/aboutus',[HomeController::class,"about"])->name('about_us');
 Route::get('/references',[HomeController::class,"references"])->name('references');
 Route::post('/contactmessage',[HomeController::class,"message"])->name('contactus_message');
+Route::get('/faq',[HomeController::class,"faq"])->name('home_faq');
 
 /* If Logged İn */
 Route::middleware('auth')->group(function(){

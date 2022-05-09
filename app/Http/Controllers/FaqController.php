@@ -25,7 +25,7 @@ class FaqController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.faq_create');
     }
 
     /**
@@ -35,8 +35,13 @@ class FaqController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   $data=new Faq;
+        $data->position=$request->input('position');
+        $data->question=$request->input('question');
+        $data->answer=$request->input('answer');
+        $data->status=$request->input('status');
+        $data->save();
+        return redirect()->route('admin_faq')->with('success','FAQ Created gracefully!');
     }
 
     /**
@@ -56,9 +61,10 @@ class FaqController extends Controller
      * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function edit(Faq $faq)
+    public function edit(Faq $faq,$id)
     {
-        //
+        $data=Faq::find($id);
+        return view('admin.faq_edit',['data'=>$data]);
     }
 
     /**
@@ -68,9 +74,14 @@ class FaqController extends Controller
      * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Faq $faq)
+    public function update(Request $request, Faq $faq, $id)
     {
-        //
+        $data=Faq::find($id);
+        $data->position=$request->input('position');
+        $data->question=$request->input('question');
+        $data->answer=$request->input('answer');
+        $data->save();
+        return back()->with('success',"FAQ Updated successfully!");
     }
 
     /**
@@ -79,8 +90,10 @@ class FaqController extends Controller
      * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Faq $faq)
+    public function destroy(Faq $faq,$id)
     {
-        //
+        $data=Faq::find($id);
+        $data->delete();
+        return redirect()->back()->with('success',"FAQ deleted successfully!");
     }
 }
