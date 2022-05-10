@@ -40,13 +40,14 @@ Route::middleware('auth')->group(function(){
     Route::get('/mycomments/{id}',[UserController::class,'destroycomment'])->name('user_comment_delete');
 });
 /* Admin */
-Route::get('/admin',[AdminController::class,'index'])->name('admin_home')->middleware('auth');
+
 Route::get('/login',[AdminController::class,'login'])->name('login');
 Route::post('/admin/logincheck',[AdminController::class,'logincheck'])->name('admin_logincheck');
 Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin_logout');
 
 /* Admin->category with auth! */
-Route::middleware('auth')->prefix('admin')->group(function(){
+Route::middleware('auth')->middleware('admin')->prefix('admin')->group(function(){
+    Route::get('/',[AdminController::class,'index'])->name('admin_home');
     /* prefix asagidakilerin hepsinin önüne eklenir. admin/category/add,admin/category/delet etc. */
     /* Categories */
     Route::get('category/',[CategoryController::class,'index'])->name('admin_category');

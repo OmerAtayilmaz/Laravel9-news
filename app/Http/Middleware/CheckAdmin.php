@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-
+use Auth;
 class CheckAdmin
 {
     /**
@@ -18,7 +18,7 @@ class CheckAdmin
     {
         $userRoles=Auth::user()->roles->pluck('name');
         if(!$userRoles->contains('admin')){
-            return redirect(route('admin.login'))->with('error','You don\'t have permission to perform this action');
+            return redirect(route('login'))->with('error','You don\'t have permission to perform this action');
         }
         return $next($request);
     }

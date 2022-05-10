@@ -73,7 +73,9 @@
                                     <div class="dropdown-menu">
                                         <a href="/myprofile" class="dropdown-item">Profile</a>
                                         <a href="{{route('admin_home')}}" class="dropdown-item">My Reviews</a>
+                                        @if(Auth::user()->roles->pluck('name')->contains('admin'))
                                         <a href="{{route('admin_home')}}" class="dropdown-item">Admin Paneli</a>
+                                        @endif
                                         <a href="{{route('admin_logout')}}" class="dropdown-item">Log out</a>
                                     </div>
                                     </div>
