@@ -48,7 +48,6 @@ Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin_logou
 /* Admin->category with auth! */
 Route::middleware('auth')->prefix('admin')->group(function(){
     /* prefix asagidakilerin hepsinin önüne eklenir. admin/category/add,admin/category/delet etc. */
-
     /* Categories */
     Route::get('category/',[CategoryController::class,'index'])->name('admin_category');
     Route::get('category/add',[CategoryController::class,'add'])->name('admin_category_add');
