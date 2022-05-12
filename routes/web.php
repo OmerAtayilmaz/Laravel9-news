@@ -18,6 +18,7 @@ use App\HTTP\Controllers\MessageController;
 use App\HTTP\Controllers\SocialmediaController;
 use App\HTTP\Controllers\CommentController;
 use App\HTTP\Controllers\FaqController;
+use App\HTTP\Controllers\Admin\UserController as Admin_UserController;
 
 /* Home */
 Route::get('/',[HomeController::class,"index"])->name('home');
@@ -47,6 +48,7 @@ Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin_logou
 
 /* Admin->category with auth! */
 Route::middleware('auth')->middleware('admin')->prefix('admin')->group(function(){
+    
     Route::get('/',[AdminController::class,'index'])->name('admin_home');
     /* prefix asagidakilerin hepsinin önüne eklenir. admin/category/add,admin/category/delet etc. */
     /* Categories */
@@ -75,7 +77,6 @@ Route::middleware('auth')->middleware('admin')->prefix('admin')->group(function(
         Route::get('delete/{id}/{news_id}',[ImageController::class,'destroy'])->name('admin_image_delete');
         Route::get('show',[ImageController::class,'show'])->name('show');
     });
-
     #Settings
     Route::prefix('settings')->group(function(){
         Route::get('/',[SettingsController::class,'index'])->name('admin_settings');
@@ -112,6 +113,19 @@ Route::middleware('auth')->middleware('admin')->prefix('admin')->group(function(
         Route::post('update/{id}',[FaqController::class,'update'])->name('admin_faq_update');
         Route::get('delete/{id}',[FaqController::class,'destroy'])->name('admin_faq_delete');
         Route::get('show',[FaqController::class,'show'])->name('admin_faq_show');
+    });
+
+    #Users
+    Route::prefix('user')->group(function (){
+        Route::get('/',[Admin_UserController::class,'index'])->name('admin_user');
+        Route::post('/create',[Admin_UserController::class,'create'])->name('admin_user_create');
+        Route::post('/store',[Admin_UserController::class,'store'])->name('admin_user_store');
+        Route::get('/edit/{id}',[Admin_UserController::class,'edit'])->name('admin_user_edit');
+        Route::post('/update/{id}',[Admin_UserController::class,'update'])->name('admin_user_update');
+        Route::post('/delete/{id}',[Admin_UserController::class,'delete'])->name('admin_user_delete');
+        Route::get('/userrole/{id}',[Admin_UserController::class,'user_roles'])->name('admin_user_roles');
+        Route::post('/userrolestore/{id}',[Admin_UserController::class,'user_role_store'])->name('admin_user_role_add');
+        Route::get('/userroledelete/{userid}/{roleid}',[Admin_UserController::class,'user_role_delete'])->name('admin_user_role_delete');
     });
 });
 
