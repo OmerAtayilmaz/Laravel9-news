@@ -16,4 +16,5 @@
 []->Image gallery deki görselleri detail sayfasında slider ile goster
 []->Confirm - delete işlemlerine onaylama ekle
 []->Update islemlerinde kucuk pencerede acilma durumu ekle
+[]->ReadME sayfasını güncelle
 */

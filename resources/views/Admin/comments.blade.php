@@ -21,7 +21,9 @@
                  @foreach($datalist as $comment)
                  <tr>
                          <th scope="row">{{$comment->id??"Undefined"}}</th>
-                         <th scope="row">{{$comment->user->name??"Undefined"}}</th>
+                         <th scope="row"><a  href="{{route('admin_user_show',['id'=>$comment->user->id])}}" type="button" class="btn btn-outline-info"
+                                                onclick="return !window.open(this.href,'','top=50 left=100 width=600 height=400')"
+                                                >{{$comment->user->name}}</a> </td></th>
                          <th scope="row">{{$comment->news_id??"Undefined"}}</th>
                          <td>{{$comment->comment }} </td>
                          <td>  {{ $comment->ip??"Undefined" }}</td>

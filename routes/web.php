@@ -126,6 +126,7 @@ Route::middleware('auth')->middleware('admin')->prefix('admin')->group(function(
         Route::get('/userrole/{id}',[Admin_UserController::class,'user_roles'])->name('admin_user_roles');
         Route::post('/userrolestore/{id}',[Admin_UserController::class,'user_role_store'])->name('admin_user_role_add');
         Route::get('/userroledelete/{userid}/{roleid}',[Admin_UserController::class,'user_role_delete'])->name('admin_user_role_delete');
+        Route::get('show/{id}',[Admin_UserController::class,'show'])->name('admin_user_show');
     });
 });
 

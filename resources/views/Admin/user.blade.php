@@ -22,7 +22,9 @@
                                     @foreach($userlist as $item)
                                     <tr>
                                             <th scope="row">{{$item->id??"Undefined"}}</th>
-                                            <td>{{$item->name }} </td>
+                                            <td><a  href="{{route('admin_user_show',['id'=>$item->id])}}" type="button" class="btn btn-outline-info"
+                                                onclick="return !window.open(this.href,'','top=50 left=100 width=600 height=400')"
+                                                >{{$item->name}}</a> </td>
                                             <td><small>  {{ $item->email??"Undefined" }} </small></td>
                                             <td><small>
                                                 @foreach($item->roles as $role) {{ $role->name }},@endforeach </small>
