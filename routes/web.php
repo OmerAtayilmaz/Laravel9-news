@@ -51,7 +51,6 @@ Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin_logou
 
 /* Admin->category with auth! */
 Route::middleware('auth')->middleware('admin')->prefix('admin')->group(function(){
-    
     Route::get('/',[AdminController::class,'index'])->name('admin_home');
     /* prefix asagidakilerin hepsinin önüne eklenir. admin/category/add,admin/category/delet etc. */
     /* Categories */
@@ -89,7 +88,10 @@ Route::middleware('auth')->middleware('admin')->prefix('admin')->group(function(
     Route::prefix('social')->group(function(){
         Route::get('/',[SocialmediaController::class,'index'])->name('socialmedia');
         Route::post('/create',[SocialmediaController::class,'create'])->name('admin_socialmedia_create');
-        Route::post('/update',[SocialmediaController::class,'update'])->name('admin_socialmedia_update');
+        Route::get('/edit/{id}',[SocialmediaController::class,'edit'])->name('socialmedia_edit');
+        Route::post('/update/{id}',[SocialmediaController::class,'update'])->name('admin_socialmedia_update');
+        Route::get('delete/{id}',[SocialmediaController::class,'destroy'])->name('socialmedia_delete');
+
     });
     #Contact Messages
     Route::prefix('messages')->group(function(){
@@ -100,12 +102,12 @@ Route::middleware('auth')->middleware('admin')->prefix('admin')->group(function(
         Route::get('show',[MessageController::class,'show'])->name('admin_message_show');
     });
     #Comments
-    Route::prefix('comment')->group(function(){
-        Route::get('/',[CommentController::class,'index'])->name('admin_comments');
-        Route::get('/edit/{id}',[CommentController::class,'edit'])->name('admin_comment_edit');
-        Route::post('/update/{id}',[CommentController::class,'update'])->name('admin_comment_update');
-        Route::get('delete/{id}',[CommentController::class,'destroy'])->name('admin_comment_delete');
-        Route::get('show',[CommentController::class,'show'])->name('admin_comment_show');
+    Route::prefix('comment')->controller(CommentController::class)->group(function(){
+        Route::get('/','index')->name('admin_comments');
+        Route::get('/edit/{id}','edit')->name('admin_comment_edit');
+        Route::post('/update/{id}','update')->name('admin_comment_update');
+        Route::get('delete/{id}','destroy')->name('admin_comment_delete');
+        Route::get('show','show')->name('admin_comment_show');
     });
     #Faq
     Route::prefix('faq')->group(function(){
@@ -142,3 +144,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+

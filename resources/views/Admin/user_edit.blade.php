@@ -26,7 +26,6 @@
                      <tr>
                          <th scope="col">id</th>                         
                          <td scope="row">{{$user->id??"Undefined"}}</td>
-
                     </tr>
                      <tr>
                          <th scope="col">Name</th>

@@ -8,6 +8,7 @@
     @include('admin._admin-navbar')
     <div class="w-100 h-auto p-2">
         <h3 class="text-center ">Our Social Media Accounts</h3>
+        @include('home.messages')
     <table class="table table-bordered table-hover table-light">
         <thead>
             <tr>
@@ -28,8 +29,8 @@
                 <td>{{$account->description}}</td>
                 <td><img width="40" src="{{Storage::url($account->image)}}"></td>
                 <td>
-                    <a type="button" href="/" class="btn btn-info">Edit</a>
-                    <a type="button" href="/" class="btn btn-danger">Remove</a>
+                    <a type="button" href="{{route('socialmedia_edit',[$account->id])}}" class="btn btn-info">Edit</a>
+                    <a type="button"  href="{{route('socialmedia_delete',[$account->id])}}" class="btn btn-danger">Remove</a>
 
                 </td>
             </tr>

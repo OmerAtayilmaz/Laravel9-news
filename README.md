@@ -13,3 +13,17 @@ Ampul haber is a website for sharing news truth as possible!
 -   BOOTSTRAP
 -   HTML
 -   CSS
+
+## ROUTE ISLEMLERI
+
+    - prefix kullanımı öğrenildi
+    - route kullanımı öğrenildi
+    - toplu controller öğrenildi
+
+## Controllers
+
+    - Create işlemi yapıldı
+    - Update işlemi yapıldı
+    - Search işlemi yapıldı
+    - Read işlemi yapıldı
+    - Delete İşlemi yapıldı

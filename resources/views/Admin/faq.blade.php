@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="col-12">
+<div class="col-12 bg-light">
       
-      <div class="bg-light rounded h-100 p-4">
+      <div class=" rounded h-100 p-4">
          <h6 class="mb-4">Frequently Asked Questions</h6>
          @include('home.messages')
          <a href="{{route('admin_faq_create')}}" class="btn btn-primary my-2 text-white">ADD QUESTION</a>
-         <div class="table-responsive bg-dark">
-             <table class="table text-white">
+         <div class="table-responsive">
+             <table class="table ">
                  <thead>
                      <tr>
                          <th scope="col">id</th>

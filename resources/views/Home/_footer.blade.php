@@ -49,9 +49,7 @@
                             @foreach($socialmedia as $item)
                             @if($item->parent_id == 0)
                                 <li>
-                                    <a href="#" class=""
-                                        ><i class="{{$item->image}}"></i
-                                        >&nbsp;&nbsp; {{$item->name}}</a
+                                    <a href="#" class="">&nbsp;&nbsp; # {{$item->name}}</a
                                     >
                                 </li>
                             @endif

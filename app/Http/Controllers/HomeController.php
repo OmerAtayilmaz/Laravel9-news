@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Settings;
 use App\Models\Socialmedia;
+use App\Models\Image;
 use App\Models\Message;
 use App\Models\News;
 use App\Models\Comment;
@@ -41,15 +42,18 @@ class HomeController extends Controller
 
     public function show(Request $request,$id,$slug){
         $new=News::find($id);
+        $imageList=Image::where('news_id',$id)->get();
         $comments=Comment::where('news_id',$id)->get();
         $commentCount=Comment::where('news_id',$id)->count();
         $commentAverage=Comment::where('news_id',$id)->average('rate');
-        return view('home.new-detail',[
+        
+         return view('home.new-detail',[
             'new'=>$new,
             'comments'=>$comments,
             'commentCount'=>$commentCount,
-            'commentAverage'=>$commentAverage
-        ]);
+            'commentAverage'=>$commentAverage,
+            'imageList'=>$imageList,
+        ]); 
     }
     public function category($id,$slug){
         $data=News::where('category_id',$id)->get();
@@ -106,8 +110,4 @@ class HomeController extends Controller
     public function panels(){
         return view('home.auth');
     }
-
-
-
-    
 }

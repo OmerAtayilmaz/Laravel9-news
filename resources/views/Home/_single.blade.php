@@ -37,6 +37,32 @@
                         </p>
                     
                         <hr>
+                        <h3 class="text-center">Relational Images </h3>
+                        <div class="container d-flex justify-content-center align-self-center">
+                            
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                             @foreach($imageList as $image)
+                                <div class="carousel-item @once active @endonce" >
+                                    <img width="400px" height="300"  src="{{Storage::url($image->image)}}" alt="First slide">
+                                </div>
+                            @endforeach     
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                    </div>
+                        </div>
                         <div class="container p-5">
                         @livewire('comment',['id'=>$new->id])
                         </div>
@@ -59,9 +85,9 @@
                                 </div>
                                 @endforeach
                             </div>
-                        </div>
-                      
+                        </div> 
                     </div>
+                  
                     <div
                         class="col-md-3 animate-box"
                         data-animate-effect="fadeInRight"

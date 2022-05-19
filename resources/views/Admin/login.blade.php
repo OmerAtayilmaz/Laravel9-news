@@ -41,6 +41,7 @@
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     @include('home.messages')
+                    <h1 class="text-center">Ampulhaber</h1>
                     <form method="post" action="{{route('admin_logincheck')}}" class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         @csrf
                         <!-- csrf güvenlik kontrolüdür. sadece bu websitesinden form gönderimini kabul eder. -->
@@ -61,6 +62,8 @@
                         <button type="submit" class="btn btn-dark py-3 w-100 mb-4">Sign In</button>
                         <p class="text-center mb-0">Don't have an Account? <a href="/register">Sign Up</a></p>
                     </form>
+                    <h6 class="text-center">Kalite tesadüf değildir.</h6>
+
                 </div>
             </div>
         </div>

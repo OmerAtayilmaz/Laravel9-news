@@ -58,7 +58,7 @@
                         <div class="clearfix"></div>
                         <div class="fh5co_tags_all">
                             @foreach($categoryList as $currentCategory)
-                            <a href="#" class="fh5co_tagg">{{$currentCategory->title}}</a>
+                            <a href="{{route('news_category',['id'=>$currentCategory->id,'slug'=>$currentCategory->slug])}}" class="fh5co_tagg">{{$currentCategory->title}}</a>
                             @endforeach
                         </div>
                     </div>

@@ -7,14 +7,14 @@
 [COMPLETED]->Navbar responsivesini Düzelt
 [COMPLETED]->Yorum Templatesini Düzelt
 [COMPLETED]->Detail sayfasında dropdown calısmıyor fixle 
-[]->Kodları Revize et
-[]->Taglere tıklanınca o kategorinin  haberlerini göstersin
-[]->Social media accountsu dynamic hale getir
-[]->Profile | Sidebarı düzelt
+[COMPLETED]->Kodları Revize et
+[COMPLETED]->Taglere tıklanınca o kategorinin  haberlerini göstersin
+[COMPLETED]->Social media accountsu dynamic hale getir
+[COMPLETED]->Profile | Sidebarı düzelt
 
 #ADMİN
-[]->Image gallery deki görselleri detail sayfasında slider ile goster
-[]->Confirm - delete işlemlerine onaylama ekle
-[]->Update islemlerinde kucuk pencerede acilma durumu ekle
+[COMPLETED]->Image gallery deki görselleri detail sayfasında slider ile goster
+[COMPLETED]->Confirm - delete işlemlerine onaylama ekle
+[COMPLETED]->Update islemlerinde kucuk pencerede acilma durumu ekle
 []->ReadME sayfasını güncelle
 */

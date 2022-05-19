@@ -1,4 +1,5 @@
 
+    
     <link href="{{asset('assets')}}/images/favicon.ico" rel="icon">
     <!-- Google Web Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -18,7 +19,7 @@
     <link href="{{asset('assets')}}/css/bootstrap.min.css" rel="stylesheet">
 <div class="table-responsive p-5">
         <h4 class="text-center">{{ucfirst($user->name)}}'s Details</h4>    
-        <table class="table ">
+        <table class="table">
                  <thead>
                      <tr>
                          <th scope="col">id</th>                         

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="col-12">
+<div class="col-12  bg-light">
       
       <div class="bg-light rounded h-100 p-4">
          <h6 class="mb-4">Contact Messages</h6>

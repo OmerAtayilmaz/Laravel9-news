@@ -41,7 +41,7 @@
                                             <td>{{$new->created_at??"******" }}</td>
                                             <td>
                                           <div class="btn-group" role="group">
-                                                <a  href="{{route('admin_news_delete',['id'=>$new->id])}}" type="button" class="btn btn-danger">Remove</a>
+                                                <a  href="{{route('admin_news_delete',['id'=>$new->id])}}" type="button" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Remove</a>
                                                 <a  href="{{route('admin_news_edit',['id'=>$new->id])}}" type="button" class="btn btn-primary">Edit</a>
                                                 <a  href="$" type="button" class="btn btn-warning">Show</a>
                                             </div> 

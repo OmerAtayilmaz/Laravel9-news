@@ -63,9 +63,12 @@ class SocialmediaController extends Controller
      * @param  \App\Models\Socialmedia  $socialmedia
      * @return \Illuminate\Http\Response
      */
-    public function edit(Socialmedia $socialmedia)
+    public function edit(Socialmedia $socialmedia,$id)
     {
-        //
+        $data=Socialmedia::find($id);
+        return view('admin.socialmedia_edit',[
+            'data'=>$data
+        ]);
     }
 
     /**
@@ -75,9 +78,17 @@ class SocialmediaController extends Controller
      * @param  \App\Models\Socialmedia  $socialmedia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Socialmedia $socialmedia)
+    public function update(Request $request, Socialmedia $socialmedia,$id)
     {
-        //
+        $data=Socialmedia::find($id);
+        if($request->file('image')){
+            $data->image=Storage::putFile('images',$request->file('image')); //File Uploading
+        }
+        $data->name=$request->input('name');
+        $data->title=$request->input('title');
+        $data->description=$request->input('description');
+        $data->save();
+        return redirect(route("socialmedia"));
     }
 
     /**
@@ -86,8 +97,11 @@ class SocialmediaController extends Controller
      * @param  \App\Models\Socialmedia  $socialmedia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Socialmedia $socialmedia)
+    public function destroy(Socialmedia $socialmedia,$id)
     {
-        //
+         $data=Socialmedia::find($id);
+         $data->delete();
+         return redirect(route("socialmedia"))->with('success',"Deleted gracefully!");
+
     }
 }

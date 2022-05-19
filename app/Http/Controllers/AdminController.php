@@ -10,11 +10,17 @@ class AdminController extends Controller
     public function index(){
         $news=DB::table('news')->get();
         /* where role='author' */
-        $authors=DB::table('users')->get();
+        $users=DB::table('users')->get();
+        $comments=DB::table('comments')->get();
+        $categories=DB::table('categories')->get();
 
         /* where role='user' */
         $users=DB::table('users')->get();
-        return view('admin.dashboard',['news'=>$news,'authors'=>$authors,'users'=>$users]);
+        return view('admin.dashboard',[
+            'news'=>$news,
+            'users'=>$users,
+            'categories'=>$categories,
+            'comments'=>$comments]);
         exit();
      }
     public function login(){
