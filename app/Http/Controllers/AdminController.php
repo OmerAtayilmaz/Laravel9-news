@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\News;
 class AdminController extends Controller
 {
     public function index(){
@@ -49,5 +49,6 @@ class AdminController extends Controller
       
          return redirect('/');
      }
+    
     
 }

@@ -1156,3 +1156,22 @@ a:hover {
     margin-right: 3px;
     color: #fff;
 }
+
+/* Search */
+.header-search form{
+    display:flex;
+}
+.header-search form button{
+    border:none;
+}
+
+
+.search-input{
+    
+    border:none;
+    background:#ededed;
+    text-indent: 5px;
+    width:200px;
+    height:33px;
+    font-weight: lighter;
+}

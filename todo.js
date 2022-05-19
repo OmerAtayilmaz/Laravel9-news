@@ -1,6 +1,6 @@
 /* 
-[]->User Show Sayfası Yap
-[]->Search Arama Cubugunu Düzelt
+[COMPLETED]->User Show Sayfası Yap
+[COMPLETED]->Search Arama Cubugunu Düzelt
 []->Footer Categorileri Veritabanından Gelsin #temel categoriler
 []->Subscribe Buttonuna gelen emaili veritabanına kaydet
 []->SubCategory Bugunu Fixle (max 3 olacak)

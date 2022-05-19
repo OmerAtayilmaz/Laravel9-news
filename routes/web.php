@@ -22,6 +22,7 @@ use App\HTTP\Controllers\Admin\UserController as Admin_UserController;
 
 /* Home */
 Route::get('/',[HomeController::class,"index"])->name('home');
+Route::get('/test/{id}',[HomeController::class,"test"])->name('test');
 Route::get('/news/{id}/{slug}',[HomeController::class,"show"])->name('news');
 Route::get('/category/{id}/{slug}',[HomeController::class,"category"])->name('news_category');
 Route::post('/getnews',[HomeController::class,"getnews"])->name('getnews');
@@ -129,7 +130,6 @@ Route::middleware('auth')->middleware('admin')->prefix('admin')->group(function(
         Route::get('show/{id}',[Admin_UserController::class,'show'])->name('admin_user_show');
     });
 });
-
 
 Route::middleware([
     'auth:sanctum',
