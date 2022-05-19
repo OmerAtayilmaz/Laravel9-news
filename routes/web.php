@@ -9,6 +9,7 @@ use App\HTTP\Controllers\HomeController;
 use App\HTTP\Controllers\EkonomiController;
 use App\HTTP\Controllers\GundemController;
 use App\HTTP\Controllers\AdminController;
+use App\HTTP\Controllers\Admin\EmailController;
 use App\HTTP\Controllers\CategoryController;
 use App\HTTP\Controllers\NewsController;
 use App\HTTP\Controllers\SettingsController;
@@ -33,6 +34,7 @@ Route::get('/contactus',[HomeController::class,"contact"])->name('contact_us');
 Route::get('/aboutus',[HomeController::class,"about"])->name('about_us');
 Route::get('/references',[HomeController::class,"references"])->name('references');
 Route::post('/contactmessage',[HomeController::class,"message"])->name('contactus_message');
+Route::post('/sendemail',[EmailController::class,"store"])->name('subscribe_emails');
 Route::get('/faq',[HomeController::class,"faq"])->name('home_faq');
 
 /* If Logged İn */

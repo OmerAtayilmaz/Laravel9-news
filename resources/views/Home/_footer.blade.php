@@ -29,84 +29,34 @@
                     <div class="col-12 col-md-3 col-lg-2">
                         <div class="footer_main_title py-3">Category</div>
                         <ul class="footer_menu">
-                            <li>
-                                <a href="#" class=""
-                                    ><i class="fa fa-angle-right"></i
-                                    >&nbsp;&nbsp; Business</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class=""
-                                    ><i class="fa fa-angle-right"></i
-                                    >&nbsp;&nbsp; Entertainment</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class=""
-                                    ><i class="fa fa-angle-right"></i
-                                    >&nbsp;&nbsp; Environment</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class=""
-                                    ><i class="fa fa-angle-right"></i
-                                    >&nbsp;&nbsp; Health</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class=""
-                                    ><i class="fa fa-angle-right"></i
-                                    >&nbsp;&nbsp; Life style</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class=""
-                                    ><i class="fa fa-angle-right"></i
-                                    >&nbsp;&nbsp; Politics</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class=""
-                                    ><i class="fa fa-angle-right"></i
-                                    >&nbsp;&nbsp; Technology</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#" class=""
-                                    ><i class="fa fa-angle-right"></i
-                                    >&nbsp;&nbsp; World</a
-                                >
-                            </li>
+                            @foreach($categoryList as $item)
+                            @if($item->parent_id == 0)
+                                <li>
+                                    <a href="#" class=""
+                                        ><i class="fa fa-angle-right"></i
+                                        >&nbsp;&nbsp; {{$item->title}}</a
+                                    >
+                                </li>
+                            @endif
+                            @endforeach
                         </ul>
                     </div>
                     <div
                         class="col-12 col-md-5 col-lg-3 position_footer_relative"
                     >
-                        <div class="footer_main_title py-3">
-                            Most Viewed Posts
-                        </div>
-                        <div class="footer_makes_sub_font">Dec 31, 2016</div>
-                        <a href="#" class="footer_post pb-4">
-                            Success is not a good teacher failure makes you
-                            humble
-                        </a>
-                        <div class="footer_makes_sub_font">Dec 31, 2016</div>
-                        <a href="#" class="footer_post pb-4">
-                            Success is not a good teacher failure makes you
-                            humble
-                        </a>
-                        <div class="footer_makes_sub_font">Dec 31, 2016</div>
-                        <a href="#" class="footer_post pb-4">
-                            Success is not a good teacher failure makes you
-                            humble
-                        </a>
-                        <div class="footer_position_absolute">
-                            <img
-                                src="{{asset('assets')}}/images/footer_sub_tipik.png"
-                                alt="img"
-                                class="width_footer_sub_img"
-                            />
-                        </div>
+                    <div class="footer_main_title py-3">Social Media</div>
+                        <ul class="footer_menu">
+                            @foreach($socialmedia as $item)
+                            @if($item->parent_id == 0)
+                                <li>
+                                    <a href="#" class=""
+                                        ><i class="{{$item->image}}"></i
+                                        >&nbsp;&nbsp; {{$item->name}}</a
+                                    >
+                                </li>
+                            @endif
+                            @endforeach
+                        </ul>
                     </div>
                     <div class="col-12 col-md-12 col-lg-4">
                         <div class="footer_main_title py-3">
@@ -133,8 +83,13 @@
                     </div>
                 </div>
                 <div class="row justify-content-center pt-2 pb-4">
+               
                     <div class="col-12 col-md-8 col-lg-7">
+                    @include('home.messages')
+                    <form method="post" action="{{route('subscribe_emails')}}">
+                        @csrf
                         <div class="input-group">
+                          
                             <span
                                 class="input-group-addon fh5co_footer_text_box"
                                 id="basic-addon1"
@@ -142,19 +97,21 @@
                             ></span>
                             <input
                                 type="text"
+                                name="email"
                                 class="form-control fh5co_footer_text_box"
                                 placeholder="Enter your email..."
                                 aria-describedby="basic-addon1"
                             />
-                            <a
-                                href="#"
-                                class="input-group-addon fh5co_footer_subcribe"
-                                id="basic-addon12"
+                            <button
+                                class="btn btn-warning"
+                                type="submit"
                             >
                                 <i class="fa fa-paper-plane-o"></i
-                                >&nbsp;&nbsp;Subscribe</a
+                                >&nbsp;&nbsp;Subscribe</button
                             >
+                       
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
