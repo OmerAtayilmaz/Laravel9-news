@@ -43,22 +43,20 @@
                         <div class="container p-5">
                             @if((int)$commentCount>0)
                             <div class="row d-flex flex-row justify-content-between">
-                              <h4>  Comments: {{$commentCount}} </h4>
-                              <h4>  Average: {{$commentAverage}} </h4>
+                              <h4 class="comment-stats">  Comments: {{$commentCount}} </h4>
+                              <h4 class="comment-stats">  Average: {{$commentAverage}} </h4>
                             </div>
                             @endif
                             <div class="row">
                                 @foreach($comments as $comment)
-                                <div class="comment-box bg-primary p-1 w-100">
-                                    <div class="comment-heade bg-dark text-white">
-                                    <i class="far fa-user text-white"></i> {{ $comment->user->name }}
+                   <div class="comment-box w-100">
+                                    <div class="comment-heade  ">
+                                    <i class="far fa-user "></i> {{ $comment->user->name }}
                                     </div>
-                                    <div class="comment-body bg-warning p-5 m-2">
+                                    <div class="comment-body   m-2">
                                     {{ $comment->comment }}
                                     </div>
-                                    <button class="btn btn-warning">Like</button>
                                 </div>
-                                
                                 @endforeach
                             </div>
                         </div>
@@ -175,7 +173,7 @@
             </div>
         </div>
        
-       
+       @include('home._scripts')
         <div class="gototop js-top">
             <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
         </div>

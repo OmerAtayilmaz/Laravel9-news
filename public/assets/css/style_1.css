@@ -1175,3 +1175,18 @@ a:hover {
     height:33px;
     font-weight: lighter;
 }
+
+/* Comments */
+.comment-box{
+    background:#ededed !important;
+    border-radius: 1rem;
+    padding:1rem !important;
+    margin-bottom:5px;
+}
+.comment-stats{
+    font-weight: lighter;
+    font-size:1rem;
+}
+.comment-box .comment-body{
+    font-size:0.8rem;
+}

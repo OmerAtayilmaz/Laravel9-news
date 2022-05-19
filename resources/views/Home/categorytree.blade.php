@@ -1,9 +1,9 @@
 @foreach($children as $subcategory)
     @if(count($subcategory->children))
-        <h6 class="dropdown-header">{{$subcategory->title}}</h6>
+        <h6> <a class="dropdown-item" href="{{route('news_category',['id'=>$subcategory->id,'slug'=>$subcategory->slug])}}"><strong>{{$subcategory->title}}</strong></a></h6>
         @include('home.categorytree',['children' => $subcategory->children])
     @else
-   <a class="dropdown-item" href="{{route('news_category',['id'=>$category->id,'slug'=>$category->slug])}}">{{$subcategory->title}}</a>
+   <a class="dropdown-item" href="{{route('news_category',['id'=>$subcategory->id,'slug'=>$subcategory->slug])}}">{{$subcategory->title}}</a>
     @endif
 @endforeach
                             

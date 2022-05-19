@@ -1,29 +1,18 @@
 @php
     $parentCategories=\App\Http\Controllers\HomeController::categorylist();
 @endphp
-<div class="container-fluid bg-faded fh5co_padd_mediya">
-                <nav class="navbar navbar-toggleable-md navbar-light">
-                    <button
-                        class="navbar-toggler navbar-toggler-right mt-3"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span class="fa fa-bars"></span>
-                    </button>
-                    <div
-                        class="collapse navbar-collapse"
-                        id="navbarSupportedContent"
-                    >
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
                                 <a class="nav-link" href="{{route('home')}}">Home
                                     <span class="sr-only">(current)</span></a>
                             </li>
-                            @foreach($parentCategories as $category)
+    @foreach($parentCategories as $category)
                              @if(count($category->children))
                                 <li class="nav-item dropdown">
                                 <a
@@ -50,7 +39,6 @@
                             </li>
                              @endif
                             @endforeach
-                            <li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="{{route('contact_us')}}">Contact
                                     <span class="sr-only">(current)</span></a>
@@ -85,11 +73,8 @@
                                 </div>
                                 @endguest
                         </li>
-                           
-                        </ul>
-                        <div class="auth">
-                      
-                    </div>
-                </nav>
-         
-        </div>
+    </ul>
+   
+  </div>
+</nav>
+
