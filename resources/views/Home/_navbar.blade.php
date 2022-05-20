@@ -60,9 +60,9 @@
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i></a>
                                     <div class="dropdown-menu">
                                         <a href="/myprofile" class="dropdown-item">Profile</a>
-                                        <a href="{{route('admin_home')}}" class="dropdown-item">My Reviews</a>
-                                        @if(Auth::user()->roles->pluck('name')->contains('admin'))
-                                        <a href="{{route('admin_home')}}" class="dropdown-item">Admin Paneli</a>
+                                        <a href="{{route('comments')}}" class="dropdown-item">My Reviews</a>
+                                        @if(Auth::user()->roles->pluck('name')->contains('admin')|| (Auth::user()->roles->pluck('name')->contains('author')))
+                                        <a href="{{route('admin_home')}}" class="dropdown-item">Dashboard</a>
                                         @endif
                                         <a href="{{route('admin_logout')}}" class="dropdown-item">Log out</a>
                                     </div>

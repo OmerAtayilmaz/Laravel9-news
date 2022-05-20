@@ -1,4 +1,7 @@
 /* 
+[] -> Frequently Asked Questions kısmını tamamla
+[] -> Author rolünü de ekle
+[] -> User profile sayfasını bitir
 [COMPLETED]->User Show Sayfası Yap
 [COMPLETED]->Search Arama Cubugunu Düzelt
 [COMPLETED]->Footer Categorileri Veritabanından Gelsin #temel categoriler

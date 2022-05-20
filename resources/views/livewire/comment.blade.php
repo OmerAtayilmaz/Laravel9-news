@@ -15,9 +15,9 @@
      @error('rate') <span class="text-danger">{{ $message }}</span> @enderror
         <label for="rate">Rate</label>
         <select class="form-control" wire:model="rate" id="rate">
-            <option  value="1">★</option>
+            <option  value="1.5" selected>★</option>
             <option  value="2">★★</option>
-            <option  value="3" selected>★★★</option>
+            <option  value="3">★★★</option>
             <option  value="4">★★★★</option>
             <option  value="5">★★★★★</option>
         </select>

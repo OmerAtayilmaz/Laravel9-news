@@ -20,11 +20,11 @@
                                         href="{{route('news',['id'=>$item->id,'slug'=>$item->slug])}}"
                                         class="d-block fh5co_small_post_heading"
                                         ><span class=""
-                                            >{{$item->category->title}}</span
+                                            >{{$item->title}}</span
                                         ></a
                                     >
                                     <div class="c_g">
-                                        <i class="fa fa-clock-o"></i> Oct 16,2017
+                                        <i class="fa fa-clock-o"></i> {{  strftime("%d %b %Y",strtotime($item->updated_at)) }}
                                     </div>
                                 </div>
                             </div>
