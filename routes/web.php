@@ -135,21 +135,7 @@ Route::middleware('auth')->middleware('admin')->prefix('admin')->group(function(
     });
 });
 
-#Editör İşlemleri
-Route::middleware('auth')->middleware('author')->prefix('admin')->group(function(){
-    Route::get('/',[AdminController::class,'index'])->name('admin_home');
-    
-      /* NEWS */
-      Route::prefix('news')->group(function(){/* admin.news.admin_news * yeni videoları izle * */
-        Route::get('/',[NewsController::class,'index'])->name('admin_news');
-        /* forwarding to add page */
-        Route::get('/add',[NewsController::class,'add'])->name('admin_news_add');
-        Route::post('/create',[NewsController::class,'create'])->name('admin_news_create');
-        Route::post('/update/{id}',[NewsController::class,'update'])->name('admin_news_update');
-        Route::get('/edit/{id}',[NewsController::class,'edit'])->name('admin_news_edit');
-        Route::get('/delete/{id}',[NewsController::class,'destroy'])->name('admin_news_delete');
-    });
-});
+
 
 Route::middleware([
     'auth:sanctum',
