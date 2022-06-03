@@ -11,8 +11,9 @@ use App\Models\Message;
 use App\Models\News;
 use App\Models\Comment;
 use App\Models\Faq;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
-
+use Auth;
 class HomeController extends Controller
 {
     public function index(){
@@ -109,5 +110,63 @@ class HomeController extends Controller
     }
     public function panels(){
         return view('home.auth');
+    }
+
+
+    #Author CRUD Operations
+    public function authornews(){
+        $authorNews=News::where('user_id',Auth::id())->get();
+        return view('home.author.index',['authorNews'=>$authorNews]);
+    }
+
+    public function author_addnews(){
+        $categories=Category::all();
+        return view('home.author.add',[
+            'categories'=>$categories
+        ]);
+    }
+    public function author_createnews(Request $request){
+        $data =new News;
+        $data->title=$request->input('title');
+        $data->keywords=$request->input('keywords');
+        $data->category_id=$request->input('category_id');
+        $data->slug=$request->input('slug');
+        $data->type=$request->input('type');
+        $data->user_id=Auth::id();
+        $data->status=$request->input('status');
+        $data->description=$request->input('description');
+        $data->detail=$request->input('detail');
+        $data->image=Storage::putFile('images',$request->file('image')); //File Uploading
+        $data->save();
+        return redirect(route('home'));  
+    }
+
+    public function author_editnews($id){
+        $new=News::find($id);
+        $categories=Category::all();
+        return view('home.author.edit',['currentNews'=>$new,'categories'=>$categories]);
+    }
+    public function author_updatenews(Request $request,$id){
+        $data =News::find($id);
+        $data->title=$request->input('title');
+        $data->keywords=$request->input('keywords');
+        $data->category_id=$request->input('category_id');
+        $data->slug=$request->input('slug');
+        $data->type=$request->input('type');
+        $data->user_id=Auth::id();
+        $data->status=$request->input('status');
+        $data->description=$request->input('description');
+        $data->detail=$request->input('detail');
+        if($request->file('image')){
+            $data->image=Storage::putFile('images',$request->file('image')); //File Uploading
+        }
+        $data->save();
+        return redirect(route('author.news'));  
+    }
+
+    public function author_deletenews($id){
+        $data=News::find($id);
+        $data->delete();
+        return redirect(route('author.news')); 
     }
 }

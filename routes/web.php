@@ -136,7 +136,19 @@ Route::middleware('auth')->middleware('admin')->prefix('admin')->group(function(
 });
 
 
-
+/* Editör -> Haber Ekle-Sil-Update-Listeles */
+Route::middleware('auth')->middleware('author')->prefix('author')->name('author.')->group(function(){
+    /* NEWS */
+    Route::prefix('news')->controller(HomeController::class)->group(function(){/* admin.news.admin_news * yeni videoları izle * */
+        Route::get('/','authornews')->name('news');
+        /* forwarding to add page */
+        Route::get('/add','author_addnews')->name('add');
+        Route::post('/create','author_createnews')->name('create');
+        Route::post('/update/{id}','author_updatenews')->name('update');
+        Route::get('/edit/{id}','author_editnews')->name('edit');
+        Route::get('/delete/{id}','author_deletenews')->name('delete');
+    });
+});
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

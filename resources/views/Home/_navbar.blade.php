@@ -52,7 +52,7 @@
                                     <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="{{route('home')}}">FAQ
+                                <a class="nav-link" href="{{route('home_faq')}}">FAQ
                                     <span class="sr-only">(current)</span></a>
                             </li>
                             @auth
@@ -61,8 +61,11 @@
                                     <div class="dropdown-menu">
                                         <a href="/myprofile" class="dropdown-item">Profile</a>
                                         <a href="{{route('comments')}}" class="dropdown-item">My Reviews</a>
-                                        @if(Auth::user()->roles->pluck('name')->contains('admin')|| (Auth::user()->roles->pluck('name')->contains('author')))
+                                        @if(Auth::user()->roles->pluck('name')->contains('admin'))
                                         <a href="{{route('admin_home')}}" class="dropdown-item">Dashboard</a>
+                                        @endif
+                                        @if(Auth::user()->roles->pluck('name')->contains('author'))
+                                        <a href="{{route('author.news')}}" class="dropdown-item">News Panel</a>
                                         @endif
                                         <a href="{{route('admin_logout')}}" class="dropdown-item">Log out</a>
                                     </div>

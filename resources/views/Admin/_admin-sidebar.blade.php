@@ -19,7 +19,7 @@
                 <div class="navbar-nav w-100">
                     <a href="{{route('admin_home')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                  
-                    @if(Auth::user()->roles->pluck('name')->contains('author'))
+                  
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-th me-2"></i>News</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -30,8 +30,7 @@
                         </div>
 
                     </div>
-                    @endif
-                    @if(Auth::user()->roles->pluck('name')->contains('admin'))
+                  
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-th me-2"></i>Categories</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -45,7 +44,6 @@
                     <a href="{{route('admin_user')}}" class="nav-item nav-link "><i class="fa fa-user me-2"></i>Users</a>
                     <a href="{{route('socialmedia')}}" class="nav-item nav-link "><i class="fas fa-hashtag"></i>Social Media</a>
                     <a href="{{route('admin_settings')}}" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Settings</a>
-                    @endif
                 </div>
             </nav>
 </div>

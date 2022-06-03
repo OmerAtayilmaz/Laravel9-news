@@ -9,14 +9,14 @@
     <div class="w-100 h-auto p-2">
         <h3 class="text-center ">Our Social Media Accounts</h3>
         @include('home.messages')
-    <table class="table table-bordered table-hover table-light">
+    <table class="table table-bordered table-hover table-light table-responsive">
         <thead>
             <tr>
             <th scope="col">#</th>
+            <th scope="col">icon</th>
             <th scope="col">name</th>
             <th scope="col">title</th>
-            <th scope="col">description</th>
-            <th scope="col">icon</th>
+      
             <th scope="col">action</th>
             </tr>
         </thead>
@@ -24,10 +24,10 @@
             @foreach($data as $account)
             <tr>
                 <th scope="row">{{$account->id}}</th>
+                <td><img width="40" src="{{Storage::url($account->image)}}"></td>
                 <td>{{$account->name}}</td>
                 <td>{{$account->title}}</td>
-                <td>{{$account->description}}</td>
-                <td><img width="40" src="{{Storage::url($account->image)}}"></td>
+              
                 <td>
                     <a type="button" href="{{route('socialmedia_edit',[$account->id])}}" class="btn btn-info">Edit</a>
                     <a type="button"  href="{{route('socialmedia_delete',[$account->id])}}" class="btn btn-danger">Remove</a>
