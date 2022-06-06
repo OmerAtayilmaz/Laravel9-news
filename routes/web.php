@@ -133,6 +133,11 @@ Route::middleware('auth')->middleware('admin')->prefix('admin')->group(function(
         Route::get('/userroledelete/{userid}/{roleid}',[Admin_UserController::class,'user_role_delete'])->name('admin_user_role_delete');
         Route::get('show/{id}',[Admin_UserController::class,'show'])->name('admin_user_show');
     });
+
+    Route::prefix('subscribes')->group(function(){
+        Route::get('/',[EmailController::class,'index'])->name('subscribes');
+        Route::get('/delete/{id}',[EmailController::class,'destroy'])->name('subscribes_delete');
+    });
 });
 
 

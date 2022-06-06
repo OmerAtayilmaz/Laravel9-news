@@ -42,6 +42,7 @@
                     <a href="{{route('admin_messages')}}" class="nav-item nav-link "><i class="fa fa-message me-2"></i>Messages</a>
                     <a href="{{route('admin_faq')}}" class="nav-item nav-link "><i class="fa fa-question me-2"></i>FAQ</a>
                     <a href="{{route('admin_user')}}" class="nav-item nav-link "><i class="fa fa-user me-2"></i>Users</a>
+                    <a href="{{route('subscribes')}}" class="nav-item nav-link "><i class="fa fa-envelope-open"></i>Subscribers</a>
                     <a href="{{route('socialmedia')}}" class="nav-item nav-link "><i class="fas fa-hashtag"></i>Social Media</a>
                     <a href="{{route('admin_settings')}}" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Settings</a>
                 </div>

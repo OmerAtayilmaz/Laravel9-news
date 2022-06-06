@@ -15,7 +15,8 @@ class EmailController extends Controller
      */
     public function index()
     {
-        //
+        $emailList=Email::all();
+        return view('admin.email.index',['emailList' => $emailList]);
     }
 
     /**
@@ -84,8 +85,10 @@ class EmailController extends Controller
      * @param  \App\Models\Email  $email
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Email $email)
+    public function destroy(Email $email,$id)
     {
-        //
+        $email=Email::find($id);
+        $email->delete();
+        return redirect()->route('subscribes')->with('success','Email deleted gracefully!');;
     }
 }

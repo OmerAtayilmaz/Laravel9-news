@@ -24,7 +24,7 @@
             <div class="container paddding">
                 <div class="row mx-0">
                     <div
-                        class="col-md-8 animate-box"
+                        class="col-md-8 animate-box "
                         data-animate-effect="fadeInLeft"
                     >
                     <h3> {{$new->title}}</h3>
